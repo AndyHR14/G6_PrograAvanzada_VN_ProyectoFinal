@@ -1,0 +1,43 @@
+@model IEnumerable<G6_PrograAvanzada_VN_ProyectoFinal.Models.Comercio>
+
+<h2>Comercios</h2>
+
+<a class="btn btn-primary" asp-action="Crear" role="button">Crear</a>
+
+<div class="table-responsive mt-3">
+    <table class="table table-primary">
+        <thead>
+            <tr>
+                <th scope="col">Identificación</th>
+                <th scope="col">Tipo identificación</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Tipo de comercio</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Correo electrónico</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var itemDato in Model)
+            {
+                <tr>
+                    <td>@itemDato.Identificacion</td>
+                    <td>@(itemDato.TipoIdentificacion == 1 ? "Física" : "Jurídica")</td>
+                    <td>@itemDato.Nombre</td>
+                    <td>
+                        @(itemDato.TipoDeComercio == 1 ? "Restaurantes" : itemDato.TipoDeComercio == 2 ? "Supermercados" : itemDato.TipoDeComercio == 3 ? "Ferreterías" : "Otros")
+                    </td>
+                    <td>@itemDato.Telefono</td>
+                    <td>@itemDato.CorreoElectronico</td>
+                    <td>@(itemDato.Estado ? "Activo" : "Inactivo")</td>
+                    <td>
+                        <a class="btn btn-primary" asp-action="Editar" asp-route-id="@itemDato.IdComercio" role="button">Editar</a>
+                        <a class="btn btn-secondary" asp-action="Detalles" asp-route-id="@itemDato.IdComercio" role="button">Detalles</a>
+                        <a class="btn btn-info" asp-action="Cajas" asp-route-id="@itemDato.IdComercio" role="button">Ver cajas</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

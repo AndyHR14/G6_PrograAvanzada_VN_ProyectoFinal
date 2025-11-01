@@ -1,0 +1,68 @@
+@model G6_PrograAvanzada_VN_ProyectoFinal.Models.Comercio
+
+<h2>Formulario de registro de comercio</h2>
+
+<form asp-action="Crear" method="post">
+    <div class="mb-3">
+        <label asp-for="Identificacion" class="form-label">Identificación</label>
+        <input asp-for="Identificacion" class="form-control" aria-describedby="helpIdentificacion" placeholder="Ingrese la identificación" />
+        <small id="helpIdentificacion" class="form-text text-muted">Help text Identificación</small>
+        <span asp-validation-for="Identificacion" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="TipoIdentificacion" class="form-label">Tipo de Identificación</label>
+        <select asp-for="TipoIdentificacion" class="form-select" aria-describedby="helpTipoIdentificacion">
+            <option value="">Seleccione...</option>
+            <option value="1">Física</option>
+            <option value="2">Jurídica</option>
+        </select>
+        <small id="helpTipoIdentificacion" class="form-text text-muted">Help text Tipo de Identificación</small>
+        <span asp-validation-for="TipoIdentificacion" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Nombre" class="form-label">Nombre</label>
+        <input asp-for="Nombre" class="form-control" aria-describedby="helpNombre" placeholder="Ingrese el nombre del comercio" />
+        <small id="helpNombre" class="form-text text-muted">Help text Nombre</small>
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="TipoDeComercio" class="form-label">Tipo de Comercio</label>
+        <select asp-for="TipoDeComercio" class="form-select" aria-describedby="helpTipoComercio">
+            <option value="">Seleccione...</option>
+            <option value="1">Restaurantes</option>
+            <option value="2">Supermercados</option>
+            <option value="3">Ferreterías</option>
+            <option value="4">Otros</option>
+        </select>
+        <small id="helpTipoComercio" class="form-text text-muted">Help text Tipo de Comercio</small>
+        <span asp-validation-for="TipoDeComercio" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Telefono" class="form-label">Teléfono</label>
+        <input asp-for="Telefono" class="form-control" aria-describedby="helpTelefono" placeholder="Ingrese el teléfono" />
+        <small id="helpTelefono" class="form-text text-muted">Help text Teléfono</small>
+        <span asp-validation-for="Telefono" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CorreoElectronico" class="form-label">Correo Electrónico</label>
+        <input asp-for="CorreoElectronico" class="form-control" aria-describedby="helpCorreo" placeholder="Ingrese el correo electrónico" />
+        <small id="helpCorreo" class="form-text text-muted">Help text Correo</small>
+        <span asp-validation-for="CorreoElectronico" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Direccion" class="form-label">Dirección</label>
+        <textarea asp-for="Direccion" class="form-control" aria-describedby="helpDireccion" placeholder="Ingrese la dirección"></textarea>
+        <small id="helpDireccion" class="form-text text-muted">Help text Dirección</small>
+        <span asp-validation-for="Direccion" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="reset" class="btn btn-danger">Reset</button>
+    <a asp-action="Index" class="btn btn-warning">Volver</a>
+</form>
