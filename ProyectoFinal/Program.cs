@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ProyectoFinal.Data;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,9 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Configurar la conexión a MySQL
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+builder.Services.AddDbContext<AppDbContext>(
+
+    options =>
+           options.UseMySQL(builder.Configuration.GetConnectionString("MySqlConnection"))
+
+    );
+
 
 var app = builder.Build();
 
