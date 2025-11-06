@@ -10,7 +10,7 @@ namespace ProyectoFinal.Data
         }
 
         public DbSet<Comercio> Comercios { get; set; }
-        public DbSet<Caja> Cajas { get; set; }
+        public DbSet<Cajas> Cajas { get; set; }
         public DbSet<Sinpe> Sinpes { get; set; }
         public DbSet<BitacoraEvento> BitacoraEventos { get; set; }
     }

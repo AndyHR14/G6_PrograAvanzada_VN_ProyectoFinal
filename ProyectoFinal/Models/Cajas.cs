@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ProyectoFinal.Models
 {
-    public class Caja
+    public class Cajas
     {
         [Key]
         public int IdCaja { get; set; }

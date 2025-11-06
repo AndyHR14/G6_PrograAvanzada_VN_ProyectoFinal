@@ -19,7 +19,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var itemDato in Model)
+            @foreach (Comercio itemDato in Model)
             {
                 <tr>
                     <td>@itemDato.Identificacion</td>
@@ -34,7 +34,7 @@
                     <td>
                         <a class="btn btn-primary" asp-controller="Comercio" asp-action="Editar" asp-route-id="@itemDato.IdComercio" role="button">Editar</a>
                         <a class="btn btn-success" asp-action="VerDetalles" asp-controller="Comercio" asp-route-id="@itemDato.IdComercio">Detalles</a>
-                        <a class="btn btn-info" asp-action="Cajas" asp-route-id="@itemDato.IdComercio" role="button">Ver cajas</a>
+                        <a class="btn btn-info" asp-controller="Cajas" asp-action="Index" asp-route-id="@itemDato.IdComercio" role="button">Ver cajas</a>
                     </td>
                 </tr>
             }

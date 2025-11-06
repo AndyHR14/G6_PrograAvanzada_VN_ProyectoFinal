@@ -1,0 +1,56 @@
+@model ProyectoFinal.Models.Cajas
+
+<h2>Formulario de registro de cajas</h2>
+
+<form asp-action="Crear" method="post">
+    <div class="mb-3">
+        <label asp-for="Nombre" class="form-label">Nombre</label>
+        <input asp-for="Nombre" 
+               class="form-control"  
+               aria-describedby="helpNombre" 
+               placeholder="Ingrese el nombre" />
+        <small id="helpIdentificacion" class="form-text text-muted"></small>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Descripcion" class="form-label">Descipcion</label>
+        <input asp-for="Descripcion" 
+               class="form-control" 
+               aria-describedby="helpDexcripcion" 
+               placeholder="Ingrese una descripcion" />
+        <small id="helpNombre" class="form-text text-muted"></small>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="TelefonoSINPE" class="form-label">Teléfono del Sinpe</label>
+        <input 
+               asp-for="TelefonoSINPE" 
+               class="form-control" 
+               aria-describedby="helpTelefonoSINPE" 
+               placeholder="Ingrese el teléfono" />
+        <small id="helpTelefono" class="form-text text-muted"></small>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FechaDeRegistro" class="form-label">Fecha de Registro</label>
+        <input type="date"
+               asp-for="FechaDeRegistro" 
+               class="form-control" 
+               aria-describedby="helpCorreo" 
+               placeholder="Ingrese el correo electrónico" />
+        <small id="helpCorreo" class="form-text text-muted"></small>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Estado" class="form-label">Estado</label>
+        <select asp-for="Estado" class="form-select">
+            <option value="True">Activo</option>
+            <option value="False">Inactivo</option>
+        </select>
+    </div>
+    
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="reset" class="btn btn-danger">Reset</button>
+    <a asp-action="Index" class="btn btn-warning">Volver</a>
+</form>

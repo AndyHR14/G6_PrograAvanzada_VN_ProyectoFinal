@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ProyectoFinal.Models.Cajas>
+
+<h2>Comercios</h2>
+
+<a class="btn btn-primary" asp-action="Crear" role="button">Crear</a>
+
+<div class="table-responsive mt-3">
+    <table class="table table-primary">
+
+        @* Nombre
+        ▪ Descripción (Solamente mostrar 10 caracteres seguidos de “…”)
+        ▪ Teléfono SINPE
+        ▪ Fecha de registro
+        ▪ Estado (Activo o Inactivo)
+        ▪ Acciones (Editar, Ver SINPE) *@
+
+        @* {
+        [Key]
+        public int IdCaja { get; set; }
+        public int IdComercio { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+        public string TelefonoSINPE { get; set; }
+        public DateTime FechaDeRegistro { get; set; }
+        public DateTime? FechaDeModificacion { get; set; }
+        public bool Estado { get; set; }
+        } *@
+
+        <thead>
+            <tr>
+                <th scope="col">Id Caja</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Telefono SINPE</th>
+                <th scope="col">Fecha de registro</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Cajas itemDato in Model)
+            {
+                <tr>
+                    <td>@itemDato.IdCaja</td>
+                    <td>@itemDato.Nombre</td>
+                    <td>@itemDato.Descripcion</td>
+                    <td>@itemDato.TelefonoSINPE</td>
+                    <td>@itemDato.FechaDeRegistro.ToString("dd/MM/yyyy")</td>
+                    <td>@itemDato.Estado</td>
+                    <td>
+                        <a class="btn btn-primary" asp-controller="Cajas" asp-action="Editar" asp-route-id="@itemDato.IdCaja" role="button">Editar</a>
+                        <a class="btn btn-info" asp-action="Ver Sinpe" asp-route-id="" role="button">Ver Sinpe</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
