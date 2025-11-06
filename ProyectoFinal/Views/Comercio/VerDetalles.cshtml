@@ -1,0 +1,76 @@
+@model ProyectoFinal.Models.Comercio
+
+<h2>Detalles del Comercio</h2>
+<hr />
+
+<table class="table table-bordered table-striped">
+    <tbody>
+
+        <tr>
+            <th>Identificación:</th>
+            <td>@Model.Identificacion</td>
+        </tr>
+
+        <tr>
+            <th>Tipo de Identificación:</th>
+            <td>
+                @(Model.TipoIdentificacion == 1 ? "Física" :
+                                Model.TipoIdentificacion == 2 ? "Jurídica" : "Desconocido")
+            </td>
+        </tr>
+
+        <tr>
+            <th>Nombre:</th>
+            <td>@Model.Nombre</td>
+        </tr>
+
+        <tr>
+            <th>Tipo de Comercio:</th>
+            <td>
+                @{
+                    string tipoComercio = Model.TipoDeComercio switch
+                    {
+                        1 => "Restaurantes",
+                        2 => "Supermercados",
+                        3 => "Ferreterías",
+                        4 => "Otros",
+                        _ => "No especificado"
+                    };
+                }
+                @tipoComercio
+            </td>
+        </tr>
+
+        <tr>
+            <th>Teléfono:</th>
+            <td>@Model.Telefono</td>
+        </tr>
+
+        <tr>
+            <th>Correo Electrónico:</th>
+            <td>@Model.CorreoElectronico</td>
+        </tr>
+
+        <tr>
+            <th>Dirección:</th>
+            <td>@Model.Direccion</td>
+        </tr>
+
+        <tr>
+            <th>Fecha de Registro:</th>
+            <td>@Model.FechaDeRegistro.ToShortDateString()</td></tr><tr>
+            <th>Fecha de Modificación:</th>
+            <td>@(Model.FechaDeModificacion.HasValue? Model.FechaDeModificacion.Value.ToShortDateString() : "N/A")</td>
+        </tr>
+
+        <tr>
+            <th>Estado:</th>
+            <td>@(Model.Estado ? "Activo" : "Inactivo")</td>
+        </tr>
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Editar" asp-route-id="@Model.IdComercio" class="btn btn-primary">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+</div>

@@ -24,7 +24,6 @@ namespace ProyectoFinal.Models
 
         public string CorreoElectronico { get; set; } = string.Empty;
 
-
         public string Direccion { get; set; } = string.Empty;
 
         public DateTime FechaDeRegistro { get; set; }
