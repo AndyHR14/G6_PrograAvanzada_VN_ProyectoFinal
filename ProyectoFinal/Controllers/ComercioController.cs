@@ -41,5 +41,57 @@ namespace ProyectoFinal.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        //Get /Editar/Id
+
+        public async Task<IActionResult> Editar(int? Id)
+        {
+            if (Id == null)
+            {
+                return NotFound();
+            }
+
+            Comercio itemComercio = await _context.Comercios.FindAsync(Id);
+            if (itemComercio == null)
+            {
+                return NotFound();
+            }
+            return View(itemComercio);
+        }   
+
+
+        //Post
+        [HttpPost]
+        public async Task<IActionResult> Editar(Comercio _comercio)
+        {
+            if (ModelState.IsValid)
+            {
+
+                _context.Update(_comercio);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+
+            return View(_comercio);
+        }
+
+        public async Task<IActionResult> VerDetalles(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Comercio comercio = await _context.Comercios.FirstOrDefaultAsync(m => m.IdComercio == id);
+
+            if (comercio == null)
+            {
+                return NotFound();
+            }
+
+            return View("VerDetalles", comercio);
+        }
+
     }
 }
