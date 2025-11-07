@@ -1,29 +1,33 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ProyectoFinal.Data;
+﻿using ProyectoFinal.Data;
 using ProyectoFinal.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
+using System;
 
-namespace Biblioteca.Controllers
+namespace ProyectoFinal.Controllers
 {
     public class CajasController : Controller
     {
-        //Invoacion de instancia
+        //Invocar o hacer una instancia
         private readonly AppDbContext _context;
 
-        //Instancia de contexto
+        //Instanciarme
         public CajasController(AppDbContext context)
         {
             _context = context;
         }
 
-        //Metodos asincronico
+
+        //Los metodos ahora son asyncronicos
         public async Task<IActionResult> Index()
         {
             return View(await _context.Cajas.ToListAsync());
         }
 
-        //Crear???
-        public IActionResult Crear()
+
+        public IActionResult Registrar()
         {
 
             return View();
@@ -31,23 +35,27 @@ namespace Biblioteca.Controllers
 
         //Post
         [HttpPost]
-        public async Task<IActionResult> Crear(Cajas _Cajas)
+        public async Task<IActionResult> Registrar(Cajas _cajas)
         {
+            _cajas.FechaDeRegistro = DateTime.Now;
+            _cajas.FechaDeModificacion = DateTime.Now;
 
             if (ModelState.IsValid)
             {
 
-                _context.Add(_Cajas);
+                _context.Add(_cajas);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction("Index");
             }
 
 
-            return View(_Cajas);
+            return View(_cajas);
         }
 
+
         //Get /Editar/Id
+
         public async Task<IActionResult> Editar(int? id)
         {
             if (id == null)
@@ -63,20 +71,24 @@ namespace Biblioteca.Controllers
             return View(itemCajas);
         }
 
+
         //Post
         [HttpPost]
-        public async Task<IActionResult> Editar(Cajas _Cajas)
+        public async Task<IActionResult> Editar(Cajas _cajas)
         {
+            _cajas.FechaDeModificacion = DateTime.Now;
+
             if (ModelState.IsValid)
             {
 
-                _context.Update(_Cajas);
+                _context.Update(_cajas);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(_Cajas);
+
+
+            return View(_cajas);
         }
-       
+
     }
 }
-

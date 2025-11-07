@@ -7,11 +7,29 @@
 
     <div class="mb-3">
         <label for="" class="form-label">ID caja</label>
-        <input type="text" readonly
+        <input type="number" disabled
                class="form-control"
                asp-for="IdCaja"
                aria-describedby="helpId"
                placeholder="Id" />
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Comercio</label>
+        <input type="number"
+               class="form-control"
+               asp-for="IdComercio"
+               aria-describedby="helpId"
+               placeholder="Id del comercio" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Nombre" class="form-label">Nombre</label>
+        <input asp-for="Nombre"
+               class="form-control"
+               aria-describedby="helpNombre"
+               placeholder="Ingrese el nombre" />
+        <small id="helpIdentificacion" class="form-text text-muted"></small>
     </div>
 
     <div class="mb-3">
@@ -32,13 +50,13 @@
         <small id="helpTelefono" class="form-text text-muted"></small>
     </div>
 
-     <div class="mb-3">
-         <label asp-for="Estado" class="form-label">Estado</label>
-         <select asp-for="Estado" class="form-select">
-             <option value="True">Activo</option>
-             <option value="False">Inactivo</option>
-         </select>
-     </div>
+    <div class="mb-3">
+        <label asp-for="Estado" class="form-label">Estado</label>
+        <select asp-for="Estado" class="form-select">
+            <option value="True">Activo</option>
+            <option value="False">Inactivo</option>
+        </select>
+    </div>
    
     <button type="submit" class="btn btn-primary">Guardar Cambios</button>
     <a asp-action="Index" class="btn btn-warning">Volver</a>

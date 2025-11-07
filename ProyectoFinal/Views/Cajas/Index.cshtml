@@ -2,7 +2,7 @@
 
 <h2>Comercios</h2>
 
-<a class="btn btn-primary" asp-action="Crear" role="button">Crear</a>
+<a class="btn btn-primary" asp-action="Registrar" role="button">Registrar</a>
 
 <div class="table-responsive mt-3">
     <table class="table table-primary">
@@ -38,17 +38,17 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (Cajas itemDato in Model)
+            @foreach (Cajas itemCaja in Model)
             {
                 <tr>
-                    <td>@itemDato.IdCaja</td>
-                    <td>@itemDato.Nombre</td>
-                    <td>@itemDato.Descripcion</td>
-                    <td>@itemDato.TelefonoSINPE</td>
-                    <td>@itemDato.FechaDeRegistro.ToString("dd/MM/yyyy")</td>
-                    <td>@itemDato.Estado</td>
+                    <td>@itemCaja.IdCaja</td>
+                    <td>@itemCaja.Nombre</td>
+                    <td>@itemCaja.Descripcion</td>
+                    <td>@itemCaja.TelefonoSINPE</td>
+                    <td>@itemCaja.FechaDeRegistro.ToString("dd/MM/yyyy")</td>
+                    <td>@itemCaja.Estado</td>
                     <td>
-                        <a class="btn btn-primary" asp-controller="Cajas" asp-action="Editar" asp-route-id="@itemDato.IdCaja" role="button">Editar</a>
+                        <a class="btn btn-primary" asp-controller="Cajas" asp-action="Editar" asp-route-id="@itemCaja.IdCaja" role="button">Editar</a>
                         <a class="btn btn-info" asp-action="Ver Sinpe" asp-route-id="" role="button">Ver Sinpe</a>
                     </td>
                 </tr>

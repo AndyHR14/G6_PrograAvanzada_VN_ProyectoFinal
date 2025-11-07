@@ -1,8 +1,18 @@
 @model ProyectoFinal.Models.Cajas
 
 <h2>Formulario de registro de cajas</h2>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form asp-action="Registrar" method="post">
 
-<form asp-action="Crear" method="post">
+    <div class="mb-3">
+        <label for="" class="form-label">Comercio</label>
+        <input type="number" 
+               class="form-control"
+               asp-for="IdComercio"
+               aria-describedby="helpId"
+               placeholder="Id del comercio" />
+    </div>
+
     <div class="mb-3">
         <label asp-for="Nombre" class="form-label">Nombre</label>
         <input asp-for="Nombre" 
@@ -29,16 +39,6 @@
                aria-describedby="helpTelefonoSINPE" 
                placeholder="Ingrese el teléfono" />
         <small id="helpTelefono" class="form-text text-muted"></small>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="FechaDeRegistro" class="form-label">Fecha de Registro</label>
-        <input type="date"
-               asp-for="FechaDeRegistro" 
-               class="form-control" 
-               aria-describedby="helpCorreo" 
-               placeholder="Ingrese el correo electrónico" />
-        <small id="helpCorreo" class="form-text text-muted"></small>
     </div>
 
     <div class="mb-3">
