@@ -53,6 +53,35 @@ namespace ProyectoFinal.Controllers
             return View(_cajas);
         }
 
+        // GET: Cajas/VerSinpe/{telefonoSINPE}
+        public async Task<IActionResult> VerSinpe(string id)
+        {
+            // Verificamos si el ID es nulo o vacio
+            if (string.IsNullOrEmpty(id))
+            {
+                return NotFound();
+            }
+
+            // Obtenemos la caja con el telefono SINPE especificado
+            var caja = await _context.Cajas.FirstOrDefaultAsync(c => c.TelefonoSINPE == id);
+            if (caja == null)
+            {
+                return NotFound();
+            }
+
+            // Obtenemos todos los SINPES para esta caja ordenados por fecha más reciente
+            var sinpes = await _context.Sinpes
+                .Where(s => s.TelefonoDestinatario == id)
+                .OrderByDescending(s => s.FechaDeRegistro)
+                .ToListAsync();
+
+            // Pasamos la informacion de la caja a la vista
+            ViewBag.Caja = caja;
+
+            // Devolvemos la vista con la lista de SINPES
+            return View(sinpes);
+        }
+
 
         //Get /Editar/Id
 

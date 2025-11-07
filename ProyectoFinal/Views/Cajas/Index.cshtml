@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<ProyectoFinal.Models.Cajas>
 
-<h2>Comercios</h2>
+<h2>Cajas</h2>
 
 <a class="btn btn-primary" asp-action="Registrar" role="button">Registrar</a>
 
@@ -30,9 +30,9 @@
             <tr>
                 <th scope="col">Id Caja</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Telefono SINPE</th>
-                <th scope="col">Fecha de registro</th>
-                <th scope="col">Teléfono</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">TelefonoSINPE</th>
+                <th scope="col">FechaDeRegistro</th>
                 <th scope="col">Estado</th>
                 <th scope="col">Acciones</th>
             </tr>
@@ -49,8 +49,7 @@
                     <td>@itemCaja.Estado</td>
                     <td>
                         <a class="btn btn-primary" asp-controller="Cajas" asp-action="Editar" asp-route-id="@itemCaja.IdCaja" role="button">Editar</a>
-                        <a class="btn btn-info" asp-action="Ver Sinpe" asp-route-id="" role="button">Ver Sinpe</a>
-                    </td>
+                        <a asp-controller="Cajas" asp-action="VerSinpe" asp-route-id="@itemCaja.TelefonoSINPE" class="btn btn-info">Ver SINPE</a>                    </td>
                 </tr>
             }
         </tbody>

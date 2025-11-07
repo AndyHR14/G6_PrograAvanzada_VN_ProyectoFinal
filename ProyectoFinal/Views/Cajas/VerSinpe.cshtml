@@ -1,0 +1,58 @@
+@model IEnumerable<ProyectoFinal.Models.Sinpe>
+
+@{
+    ViewData["Title"] = "Ver SINPE";
+}
+
+<h1>Ver SINPE - @ViewBag.Caja.Nombre</h1>
+<p>Teléfono SINPE: @ViewBag.Caja.TelefonoSINPE</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <a asp-action="Index" class="btn btn-primary">Volver a la Lista</a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Teléfono Origen</th>
+                        <th>Nombre Origen</th>
+                        <th>Teléfono Destinatario</th>
+                        <th>Nombre Destinatario</th>
+                        <th>Monto</th>
+                        <th>Descripción</th>
+                        <th>Fecha</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Any())
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.TelefonoOrigen</td>
+                                <td>@item.NombreOrigen</td>
+                                <td>@item.TelefonoDestinatario</td>
+                                <td>@item.NombreDestinatario</td>
+                                <td>@item.Monto.ToString("C")</td>
+                                <td>@item.Descripcion</td>
+                                <td>@item.FechaDeRegistro.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                                <td>@(item.Estado ? "Sincronizado" : "No Sincronizado")</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="8" class="text-center">No hay transacciones SINPE para esta caja.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
