@@ -1,0 +1,64 @@
+﻿/* Hero morado con curva */
+.privacy-hero {
+    background: radial-gradient(120% 120% at 10% 10%, #6b46ff 0%, #4e2fbf 55%, #3a2599 100%);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+    .privacy-hero .badge {
+        border-radius: 999px
+    }
+
+.privacy-hero-wave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    line-height: 0;
+}
+
+    .privacy-hero-wave svg {
+        width: 100%;
+        height: 140px;
+        display: block
+    }
+
+.privacy-section {
+    margin-top: 2.25rem
+}
+
+.section-title {
+    font-weight: 700;
+    margin-bottom: .75rem;
+    color: #2b2b2b;
+    position: relative;
+    padding-top: .35rem;
+}
+
+    .section-title::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 3px;
+        margin-top: .5rem;
+        background: linear-gradient(90deg,#6b46ff,#b892ff);
+        border-radius: 999px;
+    }
+
+#toc .list-group-item {
+    border: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+    #toc .list-group-item + .list-group-item {
+        border-top: 1px dashed #eef1f7
+    }
+
+    #toc .list-group-item:hover {
+        color: #6b46ff
+    }
+
+.card.shadow-sm {
+    box-shadow: 0 12px 28px rgba(16,24,40,.08), 0 2px 6px rgba(16,24,40,.04) !important;
+}

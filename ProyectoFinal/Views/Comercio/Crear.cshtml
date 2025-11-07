@@ -1,76 +1,125 @@
 @model ProyectoFinal.Models.Comercio
 
-<h2>Formulario de registro de comercio</h2>
+@{
+    ViewData["Title"] = "Crear comercio";
+}
 
-<form asp-action="Crear" method="post">
-    <div class="mb-3">
-        <label asp-for="Identificacion" class="form-label">Identificación</label>
-        <input asp-for="Identificacion" 
-               class="form-control"  
-               aria-describedby="helpIdentificacion" 
-               placeholder="Ingrese la identificación" />
-        <small id="helpIdentificacion" class="form-text text-muted"></small>
+    <div class="d-flex align-items-start justify-content-between flex-wrap gap-2 mb-3">
+        <div>
+            <h1 class="h3 mb-1">Formulario de registro de comercio</h1>
+            <p class="text-muted mb-0">Registra la información del comercio y su estado.</p>
+        </div>
+        <div class="d-flex gap-2">
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Volver
+            </a>
+        </div>
     </div>
 
-    <div class="mb-3">
-        <label asp-for="TipoIdentificacion" class="form-label">Tipo de Identificación</label>
-        <select asp-for="TipoIdentificacion" class="form-select" aria-describedby="helpTipoIdentificacion">
-            <option value="">Seleccione...</option>
-            <option value="1">Física</option>
-            <option value="2">Jurídica</option>
-        </select>
-        <small id="helpTipoIdentificacion" class="form-text text-muted"></small>
-    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-9">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger d-none" role="alert"></div>
 
-    <div class="mb-3">
-        <label asp-for="Nombre" class="form-label">Nombre</label>
-        <input asp-for="Nombre" 
-               class="form-control" 
-               aria-describedby="helpNombre" 
-               placeholder="Ingrese el nombre del comercio" />
-        <small id="helpNombre" class="form-text text-muted"></small>
-    </div>
+                    <form asp-action="Crear" method="post" novalidate>
+                        @Html.AntiForgeryToken()
 
-    <div class="mb-3">
-        <label asp-for="TipoDeComercio" class="form-label">Tipo de Comercio</label>
-        <select asp-for="TipoDeComercio" class="form-select" aria-describedby="helpTipoComercio">
-            <option value="">Seleccione...</option>
-            <option value="1">Restaurantes</option>
-            <option value="2">Supermercados</option>
-            <option value="3">Ferreterías</option>
-            <option value="4">Otros</option>
-        </select>
-        <small id="helpTipoComercio" class="form-text text-muted"></small>
-    </div>
+                        <div class="row g-3">
+                            <div class="col-12 col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="Identificacion" class="form-control" placeholder="Identificación" />
+                                    <label asp-for="Identificacion">Identificación</label>
+                                </div>
+                                <span asp-validation-for="Identificacion" class="text-danger small"></span>
+                            </div>
 
-    <div class="mb-3">
-        <label asp-for="Telefono" class="form-label">Teléfono</label>
-        <input asp-for="Telefono" 
-               class="form-control" 
-               aria-describedby="helpTelefono" 
-               placeholder="Ingrese el teléfono" />
-        <small id="helpTelefono" class="form-text text-muted"></small>
-    </div>
+                            <div class="col-12 col-md-6">
+                                <label asp-for="TipoIdentificacion" class="form-label">Tipo de Identificación</label>
+                                <select asp-for="TipoIdentificacion" class="form-select">
+                                    <option value="">Seleccione…</option>
+                                    <option value="1">Física</option>
+                                    <option value="2">Jurídica</option>
+                                </select>
+                                <span asp-validation-for="TipoIdentificacion" class="text-danger small"></span>
+                            </div>
 
-    <div class="mb-3">
-        <label asp-for="CorreoElectronico" class="form-label">Correo Electrónico</label>
-        <input asp-for="CorreoElectronico" 
-               class="form-control" 
-               aria-describedby="helpCorreo" 
-               placeholder="Ingrese el correo electrónico" />
-        <small id="helpCorreo" class="form-text text-muted"></small>
-    </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="Nombre" class="form-control" placeholder="Nombre del comercio" />
+                                    <label asp-for="Nombre">Nombre</label>
+                                </div>
+                                <span asp-validation-for="Nombre" class="text-danger small"></span>
+                            </div>
 
-    <div class="mb-3">
-        <label asp-for="Direccion" class="form-label">Dirección</label>
-        <textarea asp-for="Direccion" 
-                  class="form-control" 
-                  aria-describedby="helpDireccion" 
-                  placeholder="Ingrese la dirección"></textarea>
-        <small id="helpDireccion" class="form-text text-muted"></small>
-    </div>
+                            <div class="col-12 col-md-6">
+                                <label asp-for="TipoDeComercio" class="form-label">Tipo de Comercio</label>
+                                <select asp-for="TipoDeComercio" class="form-select">
+                                    <option value="">Seleccione…</option>
+                                    <option value="1">Restaurantes</option>
+                                    <option value="2">Supermercados</option>
+                                    <option value="3">Ferreterías</option>
+                                    <option value="4">Otros</option>
+                                </select>
+                                <span asp-validation-for="TipoDeComercio" class="text-danger small"></span>
+                            </div>
 
-    <button type="submit" class="btn btn-primary">Guardar</button>
-    <button type="reset" class="btn btn-danger">Reset</button>
-    <a asp-action="Index" class="btn btn-warning">Volver</a>
-</form>
+                            <div class="col-12 col-md-6">
+                                <label asp-for="Telefono" class="form-label">Teléfono</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                                    <input asp-for="Telefono" class="form-control" type="tel" inputmode="numeric" maxlength="8" placeholder="8 dígitos" />
+                                </div>
+                                <span asp-validation-for="Telefono" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label asp-for="CorreoElectronico" class="form-label">Correo Electrónico</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                    <input asp-for="CorreoElectronico" class="form-control" type="email" placeholder="correo@dominio.com" />
+                                </div>
+                                <span asp-validation-for="CorreoElectronico" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea asp-for="Direccion" class="form-control" placeholder="Dirección" style="height:100px"></textarea>
+                                    <label asp-for="Direccion">Dirección</label>
+                                </div>
+                                <span asp-validation-for="Direccion" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2 justify-content-end mt-4">
+                            <button type="reset" class="btn btn-outline-danger">
+                                <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save2 me-1"></i> Guardar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="alert alert-info border-0 shadow-sm mt-3 mb-0">
+                <i class="bi bi-info-circle me-2"></i>
+                El teléfono se valida como número local (8 dígitos). Mantén validaciones de servidor activas.
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        (function () {
+            const summary = document.querySelector('[asp-validation-summary="ModelOnly"]');
+            if (summary && summary.innerText.trim().length > 0) summary.classList.remove('d-none');
+        })();
+    </script>
+}

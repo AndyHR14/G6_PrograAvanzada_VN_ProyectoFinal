@@ -1,0 +1,78 @@
+﻿.hero-kicker {
+    letter-spacing: .02em;
+}
+
+.gradient-violet {
+    background: linear-gradient(135deg, #e8e2ff 0%, #c7b6ff 35%, #b1a2ff 60%, #f2ebff 100%);
+}
+
+.gradient-green {
+    background: linear-gradient(135deg, #e6fff3 0%, #c9ffe7 40%, #b9ffd8 70%, #f3fff9 100%);
+}
+
+.gradient-blue {
+    background: linear-gradient(135deg, #e8f2ff 0%, #d7eaff 40%, #cbe0ff 70%, #f2f7ff 100%);
+}
+
+.card-glass {
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(0, 0, 0, .05);
+}
+
+.btn-pill {
+    border-radius: 999px;
+}
+
+.round-3 {
+    border-radius: 1.25rem;
+}
+
+.shadow-soft {
+    box-shadow: 0 10px 24px rgba(16, 24, 40, .08), 0 2px 6px rgba(16, 24, 40, .04);
+}
+
+.card-cta {
+    position: absolute;
+    top: .75rem;
+    right: .75rem;
+}
+
+    .card-cta .btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+    }
+
+.chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: .5rem;
+    height: 140px;
+}
+
+    .chart-bars span {
+        display: block;
+        width: 14px;
+        border-radius: 8px;
+        background: #2b2b2b14;
+    }
+
+        .chart-bars span::after {
+            content: "";
+            display: block;
+            width: 100%;
+            border-radius: 8px;
+            background: #2b2b2b;
+            height: var(--h, 40%);
+        }
+
+.display-amount {
+    font-size: clamp(1.75rem, 3.3vw, 2.25rem);
+    line-height: 1.1;
+}
+
+.badge-soft {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    color: #333;
+}

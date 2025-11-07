@@ -1,58 +1,82 @@
 @model IEnumerable<ProyectoFinal.Models.Sinpe>
+@using System.Globalization;
 
 @{
     ViewData["Title"] = "Ver SINPE";
+    var cr = new CultureInfo("es-CR");
 }
 
-<h1>Ver SINPE - @ViewBag.Caja.Nombre</h1>
-<p>Teléfono SINPE: @ViewBag.Caja.TelefonoSINPE</p>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <a asp-action="Index" class="btn btn-primary">Volver a la Lista</a>
+<div class="container py-4">
+    <div class="d-flex align-items-start justify-content-between flex-wrap gap-2 mb-3">
+        <div>
+            <h1 class="h3 mb-1">Transacciones SINPE</h1>
+            <p class="text-muted mb-0">
+                Caja: <strong>@ViewBag.Caja?.Nombre</strong>
+                <span class="ms-2 badge bg-light text-dark border">
+                    <i class="bi bi-phone me-1"></i>@ViewBag.Caja?.TelefonoSINPE
+                </span>
+            </p>
+        </div>
+        <div class="d-flex gap-2">
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Volver a la lista
+            </a>
         </div>
     </div>
-    <div class="row mt-3">
-        <div class="col-md-12">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Teléfono Origen</th>
-                        <th>Nombre Origen</th>
-                        <th>Teléfono Destinatario</th>
-                        <th>Nombre Destinatario</th>
-                        <th>Monto</th>
-                        <th>Descripción</th>
-                        <th>Fecha</th>
-                        <th>Estado</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (Model.Any())
-                    {
-                        @foreach (var item in Model)
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table align-middle table-striped">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Teléfono Origen</th>
+                            <th>Nombre Origen</th>
+                            <th>Teléfono Destinatario</th>
+                            <th>Nombre Destinatario</th>
+                            <th class="text-end">Monto</th>
+                            <th>Descripción</th>
+                            <th class="text-nowrap">Fecha</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.TelefonoOrigen</td>
+                                    <td class="fw-semibold">@item.NombreOrigen</td>
+                                    <td>@item.TelefonoDestinatario</td>
+                                    <td>@item.NombreDestinatario</td>
+                                    <td class="text-end">@item.Monto.ToString("C", cr)</td>
+                                    <td>@item.Descripcion</td>
+                                    <td>@item.FechaDeRegistro.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                                    <td>
+                                        @if (item.Estado)
+                                        {
+                                            <span class="badge bg-success-subtle text-success border border-success-subtle">Sincronizado</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-warning-subtle text-warning border border-warning-subtle">No sincronizado</span>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
                         {
                             <tr>
-                                <td>@item.TelefonoOrigen</td>
-                                <td>@item.NombreOrigen</td>
-                                <td>@item.TelefonoDestinatario</td>
-                                <td>@item.NombreDestinatario</td>
-                                <td>@item.Monto.ToString("C")</td>
-                                <td>@item.Descripcion</td>
-                                <td>@item.FechaDeRegistro.ToString("dd/MM/yyyy HH:mm:ss")</td>
-                                <td>@(item.Estado ? "Sincronizado" : "No Sincronizado")</td>
+                                <td colspan="8" class="text-center py-4 text-muted">
+                                    No hay transacciones SINPE para esta caja.
+                                </td>
                             </tr>
                         }
-                    }
-                    else
-                    {
-                        <tr>
-                            <td colspan="8" class="text-center">No hay transacciones SINPE para esta caja.</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

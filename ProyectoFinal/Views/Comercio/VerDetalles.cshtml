@@ -1,76 +1,106 @@
 @model ProyectoFinal.Models.Comercio
 
-<h2>Detalles del Comercio</h2>
-<hr />
+@{
+    ViewData["Title"] = "Detalles del Comercio";
+    var tipoId = Model.TipoIdentificacion == 1 ? "Física"
+                : Model.TipoIdentificacion == 2 ? "Jurídica" : "Desconocido";
 
-<table class="table table-bordered table-striped">
-    <tbody>
+    var tipoComercio = Model.TipoDeComercio switch
+    {
+        1 => "Restaurantes",
+        2 => "Supermercados",
+        3 => "Ferreterías",
+        4 => "Otros",
+        _ => "No especificado"
+    };
+}
 
-        <tr>
-            <th>Identificación:</th>
-            <td>@Model.Identificacion</td>
-        </tr>
 
-        <tr>
-            <th>Tipo de Identificación:</th>
-            <td>
-                @(Model.TipoIdentificacion == 1 ? "Física" :
-                  Model.TipoIdentificacion == 2 ? "Jurídica" : "Desconocido")
-            </td>
-        </tr>
+    <div class="d-flex align-items-start justify-content-between flex-wrap gap-2 mb-3">
+        <div>
+            <h1 class="h3 mb-1">Detalles del comercio</h1>
+            <p class="text-muted mb-0">Información completa del registro seleccionado.</p>
+        </div>
+        <div class="d-flex gap-2">
+            <a asp-action="Editar" asp-route-id="@Model.IdComercio" class="btn btn-primary">
+                <i class="bi bi-pencil-square me-1"></i> Editar
+            </a>
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Volver
+            </a>
+        </div>
+    </div>
 
-        <tr>
-            <th>Nombre:</th>
-            <td>@Model.Nombre</td>
-        </tr>
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4">
+            <div class="row g-3">
+                <div class="col-12 col-md-6">
+                    <div class="mb-2"><span class="text-muted">Identificación</span></div>
+                    <div class="fw-semibold">@Model.Identificacion</div>
+                </div>
 
-        <tr>
-            <th>Tipo de Comercio:</th>
-            <td>
-                @{
-                    string tipoComercio = Model.TipoDeComercio switch
-                    {
-                        1 => "Restaurantes",
-                        2 => "Supermercados",
-                        3 => "Ferreterías",
-                        4 => "Otros",
-                        _ => "No especificado"
-                    };
-                }
-                @tipoComercio
-            </td>
-        </tr>
+                <div class="col-12 col-md-6">
+                    <div class="mb-2"><span class="text-muted">Tipo de identificación</span></div>
+                    <div>@tipoId</div>
+                </div>
 
-        <tr>
-            <th>Teléfono:</th>
-            <td>@Model.Telefono</td>
-        </tr>
+                <div class="col-12 col-md-6">
+                    <div class="mb-2"><span class="text-muted">Nombre</span></div>
+                    <div class="fw-semibold">@Model.Nombre</div>
+                </div>
 
-        <tr>
-            <th>Correo Electrónico:</th>
-            <td>@Model.CorreoElectronico</td>
-        </tr>
+                <div class="col-12 col-md-6">
+                    <div class="mb-2"><span class="text-muted">Tipo de comercio</span></div>
+                    <div>@tipoComercio</div>
+                </div>
 
-        <tr>
-            <th>Dirección:</th>
-            <td>@Model.Direccion</td>
-        </tr>
+                <div class="col-12 col-md-6">
+                    <div class="mb-2"><span class="text-muted">Teléfono</span></div>
+                    <div>
+                        <span class="badge bg-light text-dark border">
+                            <i class="bi bi-telephone me-1"></i>@Model.Telefono
+                        </span>
+                    </div>
+                </div>
 
-        <tr>
-            <th>Fecha de Registro:</th>
-            <td>@Model.FechaDeRegistro.ToShortDateString()</td></tr><tr>
-            <th>Fecha de Modificación:</th>
-            <td>@(Model.FechaDeModificacion.HasValue? Model.FechaDeModificacion.Value.ToShortDateString() : "N/A")</td>
-        </tr>
+                <div class="col-12 col-md-6">
+                    <div class="mb-2"><span class="text-muted">Correo electrónico</span></div>
+                    <div>
+                        <a href="mailto:@Model.CorreoElectronico" class="text-decoration-none">
+                            <i class="bi bi-envelope me-1"></i>@Model.CorreoElectronico
+                        </a>
+                    </div>
+                </div>
 
-        <tr>
-            <th>Estado:</th>
-            <td>@(Model.Estado ? "Activo" : "Inactivo")</td>
-        </tr>
-    </tbody>
-</table>
+                <div class="col-12">
+                    <div class="mb-2"><span class="text-muted">Dirección</span></div>
+                    <div>@Model.Direccion</div>
+                </div>
 
-<div>
-    <a asp-action="Editar" asp-route-id="@Model.IdComercio" class="btn btn-primary">Editar</a>
-    <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+                <div class="col-12 col-md-6">
+                    <div class="mb-2"><span class="text-muted">Fecha de registro</span></div>
+                    <div>@Model.FechaDeRegistro.ToString("dd/MM/yyyy")</div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="mb-2"><span class="text-muted">Fecha de modificación</span></div>
+                    <div>@(Model.FechaDeModificacion.HasValue? Model.FechaDeModificacion.Value.ToString("dd/MM/yyyy") : "N/A")</div>
+                </div>
+
+                <div class="col-12">
+                    <div class="mb-2"><span class="text-muted">Estado</span></div>
+                    <div>
+                        @if (Model.Estado)
+                        {
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">Activo</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle">Inactivo</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,8 +1,141 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="container py-5">
+    <!-- Hero -->
+    <div class="row align-items-center gy-4">
+        <div class="col-12 col-lg-6">
+            <div class="mb-2 hero-kicker text-secondary">Pagos electrónicos • SINPE</div>
+            <h1 class="display-5 fw-semibold mb-3">
+                Seguro por diseño,<br class="d-none d-md-inline">
+                confiable para tu comercio.
+            </h1>
+            <p class="text-secondary mb-4">
+                Gestiona comercios, cajas y transacciones SINPE con una interfaz clara y consistente.
+                Centraliza tus operaciones y obtén visibilidad en tiempo real.
+            </p>
+
+            <div class="d-flex flex-wrap gap-2">
+                <a asp-controller="Sinpe" asp-action="Create" class="btn btn-primary btn-lg btn-pill px-4">
+                    <i class="bi bi-lightning-charge-fill me-1"></i> Iniciar transferencia
+                </a>
+            </div>
+
+            <div class="d-flex gap-4 mt-4 text-secondary">
+
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <!-- Carta Principal -->
+            <div class="card border-0 shadow-soft round-3 mb-4 gradient-violet">
+                <div class="card-body p-4 position-relative">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div>
+                            <div class="text-dark-50 small">Basado en ventas del mes</div>
+                            <h5 class="mb-0">Ganancias mensuales</h5>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-end">
+                        <div class="col-7">
+                            <div class="chart-bars">
+                                <span style="--h:60%"></span>
+                                <span style="--h:35%"></span>
+                                <span style="--h:80%"></span>
+                                <span style="--h:50%"></span>
+                                <span style="--h:90%"></span>
+                                <span style="--h:40%"></span>
+                                <span style="--h:70%"></span>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cartas inferiores -->
+            <div class="row g-3">
+                <div class="col-12 col-md-6">
+                    <div class="card border-0 shadow-soft round-3 gradient-blue position-relative card-glass">
+                        <div class="card-cta">
+                            <a asp-controller="Cajas" asp-action="Index" class="btn btn-light btn-sm"><i class="bi bi-arrow-up-right"></i></a>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="text-secondary small mb-1">Cajas activas</div>
+                            <h5 class="mb-2">Ver Cajas Activas</h5>
+                            <div class="text-secondary small"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="card border-0 shadow-soft round-3 gradient-green position-relative card-glass">
+                        <div class="card-cta">
+                            <a asp-controller="Comercio" asp-action="Index" class="btn btn-light btn-sm"><i class="bi bi-arrow-up-right"></i></a>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="text-secondary small mb-1">Transacciones</div>
+                            <h5 class="mb-2">Ver Comercios Activos</h5>
+                            <div class="text-secondary small"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Parte inferior -->
+    <div class="row g-3 mt-5">
+        <div class="col-12 col-md-4">
+            <div class="card h-100 border-0 shadow-soft round-3">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center mb-2">
+                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle me-2"><i class="bi bi-receipt"></i></span>
+                        <h6 class="mb-0">Registrar SINPE</h6>
+                    </div>
+                    <p class="text-secondary small mb-3">Simula pagos a teléfonos asociados a cajas del comercio.</p>
+                    <a asp-controller="Sinpe" asp-action="Create" class="btn btn-sm btn-primary btn-pill">
+                        <i class="bi bi-lightning-charge me-1"></i> Nuevo SINPE
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="card h-100 border-0 shadow-soft round-3">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center mb-2">
+                        <span class="badge bg-success-subtle text-success border border-success-subtle me-2"><i class="bi bi-building"></i></span>
+                        <h6 class="mb-0">Gestionar Comercios</h6>
+                    </div>
+                    <p class="text-secondary small mb-3">Crea y agrega la información del comercio.</p>
+                    <a asp-controller="Comercio" asp-action="Crear" class="btn btn-sm btn-outline-success btn-pill">
+                        <i class="bi bi-building-check me-1"></i> Nuevo Comercio
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="card h-100 border-0 shadow-soft round-3">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center mb-2">
+                        <span class="badge bg-info-subtle text-info border border-info-subtle me-2"><i class="bi bi-box-seam"></i></span>
+                        <h6 class="mb-0">Cajas</h6>
+                    </div>
+                    <p class="text-secondary small mb-3">Crea y edita cajas vinculadas a tu comercio y a SINPE.</p>
+                    <a asp-controller="Cajas" asp-action="Registrar" class="btn btn-sm btn-outline-info btn-pill">
+                        <i class="bi bi-plus-circle me-1"></i> Nueva Caja
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

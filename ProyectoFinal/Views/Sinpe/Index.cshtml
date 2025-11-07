@@ -2,12 +2,47 @@
     ViewData["Title"] = "Módulo SINPE";
 }
 
-<h1>Módulo SINPE</h1>
+<div class="container py-4">
 
-<p>
-    <a asp-action="Create" class="btn btn-primary">Registrar nuevo SINPE</a>
-</p>
+    <div class="d-flex align-items-start justify-content-between flex-wrap gap-2 mb-3">
+        <div>
+            <h1 class="h3 mb-1">Módulo SINPE</h1>
+            <p class="text-muted mb-0">Simulación de pagos electrónicos a números asociados a caja.</p>
+        </div>
+        <div class="d-flex gap-2">
+            <a asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle me-1"></i>
+                Registrar nuevo SINPE
+            </a>
+        </div>
+    </div>
 
-<div class="alert alert-info">
-    Utilice el botón "Registrar nuevo SINPE" para simular un pago electrónico a un número de teléfono asociado a una caja.
+    <div class="row g-3">
+        <div class="col-12 col-lg-7">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <h2 class="h5">¿Qué puedes hacer aquí?</h2>
+                    <p class="mb-0 text-secondary">
+                        Registra una transferencia SINPE Móvil indicando teléfonos de origen y destinatario (caja),
+                        nombre de las partes, monto y una descripción opcional. El sistema validará el formato y te
+                        mostrará el resultado de la simulación.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-5">
+            <div class="alert alert-info border-0 shadow-sm mb-0">
+                <div class="d-flex">
+                    <div class="me-2">
+                        <i class="bi bi-info-circle"></i>
+                    </div>
+                    <div>
+                        <strong>Consejo:</strong> usa siempre el botón <em>“Registrar nuevo SINPE”</em> para crear una
+                        transacción. Podrás volver a este módulo en cualquier momento.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

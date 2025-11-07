@@ -1,6 +1,157 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Política de Privacidad";
+    var fecha = ViewBag.FechaEfectiva as DateTime? ?? new DateTime(2018, 5, 1);
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+@section Styles {
+    <link rel="stylesheet" href="~/css/privacy.css" asp-append-version="true" />
+}
+
+<div class="privacy-hero position-relative text-white">
+    <div class="container py-5">
+        <div class="d-flex flex-column align-items-start">
+            <span class="badge bg-white text-primary fw-semibold mb-3 shadow-sm">Legal</span>
+            <h1 class="display-4 fw-bold mb-2">Privacy Policy</h1>
+            <p class="opacity-75 mb-0">Effective @fecha.ToString("MMMM d, yyyy")</p>
+        </div>
+    </div>
+
+    <!-- Wave inferior -->
+    <div class="privacy-hero-wave">
+        <svg viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,96 C240,160 480,16 720,48 C960,80 1200,176 1440,96 L1440,140 L0,140 Z" fill="white"></path>
+        </svg>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <div class="row g-4">
+        <!-- Índice lateral -->
+        <aside class="col-12 col-lg-4">
+            <div class="position-sticky" style="top: 100px;">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h6 class="text-uppercase text-muted mb-3">Contenido</h6>
+                        <div id="toc" class="list-group list-group-flush">
+                            <a class="list-group-item list-group-item-action" href="#tipos-info">Tipos de información que recopilamos</a>
+                            <a class="list-group-item list-group-item-action" href="#automatica">Información recopilada automáticamente</a>
+                            <a class="list-group-item list-group-item-action" href="#uso-info">Cómo usamos la información</a>
+                            <a class="list-group-item list-group-item-action" href="#compartir">Cuándo compartimos información</a>
+                            <a class="list-group-item list-group-item-action" href="#derechos">Tus derechos y opciones</a>
+                            <a class="list-group-item list-group-item-action" href="#cookies">Cookies y tecnologías similares</a>
+                            <a class="list-group-item list-group-item-action" href="#seguridad">Seguridad</a>
+                            <a class="list-group-item list-group-item-action" href="#contacto">Contacto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Contenido -->
+        <main class="col-12 col-lg-8">
+            <section id="intro" class="mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4 p-md-5">
+                        <p class="lead mb-0">
+                            Esta Política de Privacidad describe cómo recopilamos, usamos y protegemos los datos
+                            personales cuando utilizas nuestro sitio y los módulos del sistema (Comercio, Cajas y SINPE).
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tipos-info" class="privacy-section">
+                <h2 class="section-title">Tipos de información que recopilamos</h2>
+                <p>
+                    Podemos recopilar datos de contacto (como nombre, teléfono, correo), datos de identificación
+                    del comercio y metadatos de transacciones SIMULADAS de SINPE (por ejemplo, montos, timestamps,
+                    teléfonos de origen/destino). Esta información puede ser proporcionada directamente por ti
+                    o generada por el sistema durante su uso.
+                </p>
+                <ul>
+                    <li>Datos de cuenta y perfil (Comercio, Cajas).</li>
+                    <li>Datos operativos de transacciones (SINPE simulado).</li>
+                    <li>Registros técnicos y de auditoría.</li>
+                </ul>
+            </section>
+
+            <section id="automatica" class="privacy-section">
+                <h2 class="section-title">Información recopilada automáticamente</h2>
+                <p>
+                    Cuando navegas, podemos registrar información técnica como dirección IP, agente de usuario,
+                    páginas visitadas y tiempos de respuesta. Estos datos se usan para seguridad, métricas y
+                    mejora de la experiencia.
+                </p>
+            </section>
+
+            <section id="uso-info" class="privacy-section">
+                <h2 class="section-title">Cómo usamos la información</h2>
+                <ul>
+                    <li>Operar y mantener el sistema (Comercios, Cajas, SINPE).</li>
+                    <li>Proveer funcionalidades de simulación y reportes.</li>
+                    <li>Seguridad, prevención de fraude y auditoría.</li>
+                    <li>Cumplimiento de obligaciones legales aplicables.</li>
+                </ul>
+            </section>
+
+            <section id="compartir" class="privacy-section">
+                <h2 class="section-title">Cuándo compartimos información</h2>
+                <p>
+                    No vendemos datos personales. Podemos compartir información con proveedores que nos brindan
+                    servicios de infraestructura o soporte, bajo contratos y medidas de confidencialidad, o
+                    cuando la ley lo requiera.
+                </p>
+            </section>
+
+            <section id="derechos" class="privacy-section">
+                <h2 class="section-title">Tus derechos y opciones</h2>
+                <p>
+                    Dependiendo de tu jurisdicción, puedes tener derechos de acceso, rectificación, eliminación,
+                    oposición o portabilidad. Para ejercerlos, consulta la sección de contacto.
+                </p>
+            </section>
+
+            <section id="cookies" class="privacy-section">
+                <h2 class="section-title">Cookies y tecnologías similares</h2>
+                <p>
+                    Usamos cookies necesarias para el funcionamiento del sitio y, opcionalmente, cookies analíticas.
+                    Puedes gestionar tus preferencias desde la configuración de tu navegador.
+                </p>
+            </section>
+
+            <section id="seguridad" class="privacy-section">
+                <h2 class="section-title">Seguridad</h2>
+                <p>
+                    Aplicamos controles razonables de seguridad (encriptación en tránsito, registros de auditoría,
+                    controles de acceso). Ningún sistema es 100% seguro; te recomendamos usar contraseñas robustas
+                    y mantener tus dispositivos actualizados.
+                </p>
+            </section>
+
+            <section id="contacto" class="privacy-section">
+                <h2 class="section-title">Contacto</h2>
+                <p class="mb-2">Si tienes preguntas sobre esta política o tus datos, contáctanos:</p>
+                <ul class="mb-0">
+                    <li>Correo: <a href="mailto:soporte@tu-dominio.com">soporte@tu-dominio.com</a></li>
+                    <li>Asunto sugerido: “Privacidad – Solicitud de información”</li>
+                </ul>
+            </section>
+
+            <hr class="my-4" />
+            <p class="text-muted small">Última actualización: @DateTime.Now.ToString("dd/MM/yyyy")</p>
+        </main>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.querySelectorAll('#toc a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const el = document.querySelector(a.getAttribute('href'));
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+}
+
