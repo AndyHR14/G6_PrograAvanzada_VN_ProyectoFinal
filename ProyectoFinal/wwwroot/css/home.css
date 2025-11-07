@@ -3,15 +3,18 @@
 }
 
 .gradient-violet {
-    background: linear-gradient(135deg, #e8e2ff 0%, #c7b6ff 35%, #b1a2ff 60%, #f2ebff 100%);
+    background: #1646f2;
+    background: linear-gradient(125deg,rgba(22, 70, 242, 1) 0%, rgba(55, 240, 157, 1) 50%, rgba(0, 183, 196, 1) 99%);
 }
 
 .gradient-green {
-    background: linear-gradient(135deg, #e6fff3 0%, #c9ffe7 40%, #b9ffd8 70%, #f3fff9 100%);
+    background: #0a87f5;
+    background: linear-gradient(125deg,rgba(10, 135, 245, 1) 0%, rgba(250, 187, 247, 1) 99%);
 }
 
 .gradient-blue {
-    background: linear-gradient(135deg, #e8f2ff 0%, #d7eaff 40%, #cbe0ff 70%, #f2f7ff 100%);
+    background: #3016f2;
+    background: linear-gradient(125deg,rgba(48, 22, 242, 1) 0%, rgba(188, 187, 250, 1) 99%);
 }
 
 .card-glass {

@@ -127,7 +127,7 @@ C:\Users\gabri\Desktop\Progamaton\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFin
 C:\Users\gabri\Desktop\Progamaton\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\ProyectoFinal.genruntimeconfig.cache
 C:\Users\gabri\Desktop\Progamaton\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\ref\ProyectoFinal.dll
 C:\Users\gabri\Desktop\Progamaton\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\compressed\fbethnjv0d-3y8m7uxm6z.gz
-C:\Users\gabri\Desktop\Progamaton\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\compressed\5fad842s9w-wfczyj94uz.gz
 C:\Users\gabri\Desktop\Progamaton\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\compressed\j5ykesy7h8-9b98ealq27.gz
-C:\Users\gabri\Desktop\Progamaton\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\compressed\3ebhevz6cz-mthztgrzrc.gz
 C:\Users\gabri\Desktop\Progamaton\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\compressed\uz5nlogasf-3r8b2a0bt1.gz
+C:\Users\gabri\Desktop\Progamaton\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\compressed\5fad842s9w-4b0kv1wu5p.gz
+C:\Users\gabri\Desktop\Progamaton\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\compressed\3ebhevz6cz-hvfj3m8pr8.gz
