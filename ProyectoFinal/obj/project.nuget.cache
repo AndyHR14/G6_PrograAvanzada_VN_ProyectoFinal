@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "f6VXWZV0vQo=",
+  "dgSpecHash": "5s78HjPKVVg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\matia\\Desktop\\Repositorio del profe programacion avanzada\\Proyecto Grupo 6 Progra avanzada\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
+  "projectFilePath": "C:\\Users\\matia\\Desktop\\Repositorio del profe programacion avanzada\\Proyecto Programacion avanzada grupo 6\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\matia\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",
     "C:\\Users\\matia\\.nuget\\packages\\google.protobuf\\3.30.0\\google.protobuf.3.30.0.nupkg.sha512",
@@ -58,9 +58,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "El paquete \"Microsoft.AspNet.Mvc 5.3.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net9.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
-      "projectPath": "C:\\Users\\matia\\Desktop\\Repositorio del profe programacion avanzada\\Proyecto Grupo 6 Progra avanzada\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
+      "projectPath": "C:\\Users\\matia\\Desktop\\Repositorio del profe programacion avanzada\\Proyecto Programacion avanzada grupo 6\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\matia\\Desktop\\Repositorio del profe programacion avanzada\\Proyecto Grupo 6 Progra avanzada\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
+      "filePath": "C:\\Users\\matia\\Desktop\\Repositorio del profe programacion avanzada\\Proyecto Programacion avanzada grupo 6\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
       "libraryId": "Microsoft.AspNet.Mvc",
       "targetGraphs": [
         "net9.0"
@@ -70,9 +70,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "El paquete \"Microsoft.AspNet.Razor 3.3.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net9.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
-      "projectPath": "C:\\Users\\matia\\Desktop\\Repositorio del profe programacion avanzada\\Proyecto Grupo 6 Progra avanzada\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
+      "projectPath": "C:\\Users\\matia\\Desktop\\Repositorio del profe programacion avanzada\\Proyecto Programacion avanzada grupo 6\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\matia\\Desktop\\Repositorio del profe programacion avanzada\\Proyecto Grupo 6 Progra avanzada\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
+      "filePath": "C:\\Users\\matia\\Desktop\\Repositorio del profe programacion avanzada\\Proyecto Programacion avanzada grupo 6\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
       "libraryId": "Microsoft.AspNet.Razor",
       "targetGraphs": [
         "net9.0"
@@ -82,9 +82,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "El paquete \"Microsoft.AspNet.WebPages 3.3.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net9.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
-      "projectPath": "C:\\Users\\matia\\Desktop\\Repositorio del profe programacion avanzada\\Proyecto Grupo 6 Progra avanzada\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
+      "projectPath": "C:\\Users\\matia\\Desktop\\Repositorio del profe programacion avanzada\\Proyecto Programacion avanzada grupo 6\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\matia\\Desktop\\Repositorio del profe programacion avanzada\\Proyecto Grupo 6 Progra avanzada\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
+      "filePath": "C:\\Users\\matia\\Desktop\\Repositorio del profe programacion avanzada\\Proyecto Programacion avanzada grupo 6\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
       "libraryId": "Microsoft.AspNet.WebPages",
       "targetGraphs": [
         "net9.0"
@@ -94,9 +94,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "El paquete \"Microsoft.Web.Infrastructure 1.0.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net9.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
-      "projectPath": "C:\\Users\\matia\\Desktop\\Repositorio del profe programacion avanzada\\Proyecto Grupo 6 Progra avanzada\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
+      "projectPath": "C:\\Users\\matia\\Desktop\\Repositorio del profe programacion avanzada\\Proyecto Programacion avanzada grupo 6\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\matia\\Desktop\\Repositorio del profe programacion avanzada\\Proyecto Grupo 6 Progra avanzada\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
+      "filePath": "C:\\Users\\matia\\Desktop\\Repositorio del profe programacion avanzada\\Proyecto Programacion avanzada grupo 6\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
       "libraryId": "Microsoft.Web.Infrastructure",
       "targetGraphs": [
         "net9.0"

@@ -35,6 +35,7 @@ namespace ProyectoFinal.Controllers
 
         //Post
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Registrar(Cajas _cajas)
         {
             _cajas.FechaDeRegistro = DateTime.Now;
@@ -42,6 +43,15 @@ namespace ProyectoFinal.Controllers
 
             if (ModelState.IsValid)
             {
+                // Validar que no exista otra caja con el mismo nombre (único)
+                var existeNombre = await _context.Cajas
+                    .AnyAsync(c => c.Nombre != null && c.Nombre.Trim().ToLower() == (_cajas.Nombre ?? "").Trim().ToLower());
+
+                if (existeNombre)
+                {
+                    ModelState.AddModelError("Nombre", "Ya existe una caja con ese nombre.");
+                    return View(_cajas);
+                }
 
                 _context.Add(_cajas);
                 await _context.SaveChangesAsync();
@@ -80,6 +90,47 @@ namespace ProyectoFinal.Controllers
 
             // Devolvemos la vista con la lista de SINPES
             return View(sinpes);
+        }
+
+        //Acción para sincronizar un SINPE (marca como sincronizado)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SincronizarSinpe(int id)
+        {
+            var sinpe = await _context.Sinpes.FindAsync(id);
+            if (sinpe == null)
+            {
+                return NotFound();
+            }
+
+            if (!sinpe.Estado)
+            {
+                // Guardar estado anterior
+                var estadoAnterior = sinpe.Estado;
+
+                // Cambiar estado a sincronizado
+                sinpe.Estado = true;
+
+                // Registrar en bitácora el cambio de estado
+                var bitacora = new BitacoraEvento
+                {
+                    TablaDeEvento = "SINPE",
+                    TipoDeEvento = "Sincronizar",
+                    FechaDeEvento = DateTime.Now,
+                    DescripcionDeEvento = $"Se sincronizó SINPE Id={sinpe.IdSinpe}",
+                    StackTrace = "",
+                    DatosAnteriores = System.Text.Json.JsonSerializer.Serialize(new { IdSinpe = sinpe.IdSinpe, Estado = estadoAnterior }),
+                    DatosPosteriores = System.Text.Json.JsonSerializer.Serialize(new { IdSinpe = sinpe.IdSinpe, Estado = sinpe.Estado })
+                };
+
+                _context.BitacoraEventos.Add(bitacora);
+                _context.Sinpes.Update(sinpe);
+
+                await _context.SaveChangesAsync();
+            }
+
+            // Redirigimos de vuelta a la vista de SINPEs de la caja correspondiente
+            return RedirectToAction("VerSinpe", new { id = sinpe.TelefonoDestinatario });
         }
 
 
