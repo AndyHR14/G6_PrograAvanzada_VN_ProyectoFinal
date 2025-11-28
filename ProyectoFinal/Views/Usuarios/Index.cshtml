@@ -1,0 +1,53 @@
+@model IEnumerable<ProyectoFinal.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+<h2>Usuarios</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+<p>
+    <a class="btn btn-primary" href="/Usuarios/Crear">Crear nuevo</a>
+    <a class="btn btn-secondary" href="/">Volver</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Comercio</th>
+            <th>Nombres</th>
+            <th>Primer Apellido</th>
+            <th>Segundo Apellido</th>
+            <th>Identificación</th>
+            <th>Correo Electrónico</th>
+            <th>Fecha de registro</th>
+            <th>Fecha de modificación</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+            <td>@(item.Comercio != null ? item.Comercio.Nombre : "-")</td>
+            <td>@item.Nombres</td>
+            <td>@item.PrimerApellido</td>
+            <td>@item.SegundoApellido</td>
+            <td>@item.Identificacion</td>
+            <td>@item.CorreoElectronico</td>
+            <td>@item.FechaDeRegistro.ToString("g")</td>
+            <td>@(item.FechaDeModificacion.HasValue ? item.FechaDeModificacion.Value.ToString("g") : "-")</td>
+            <td>@(item.Estado ? "Activo" : "Inactivo")</td>
+            <td>
+                <a href="/Usuarios/Editar/@item.IdUsuario">Editar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

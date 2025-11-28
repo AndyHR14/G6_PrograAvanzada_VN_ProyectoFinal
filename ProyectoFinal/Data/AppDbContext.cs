@@ -13,6 +13,7 @@ namespace ProyectoFinal.Data
         public DbSet<Cajas> Cajas { get; set; }
         public DbSet<Sinpe> Sinpes { get; set; }
         public DbSet<BitacoraEvento> BitacoraEventos { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
         // Metodo para configurar las relaciones
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -26,6 +27,7 @@ namespace ProyectoFinal.Data
                 .HasForeignKey(s => s.TelefonoDestinatario)  // La clave foranea en Sinpes
                 .HasPrincipalKey(c => c.TelefonoSINPE)  // La clave en Cajas
                 .IsRequired();  // La relacion es obligatoria
+
         }
     }
 }
