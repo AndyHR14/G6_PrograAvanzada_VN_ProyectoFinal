@@ -83,7 +83,7 @@ namespace ProyectoFinal.Controllers
             var comercioExists = await _context.Comercios.AnyAsync(c => c.IdComercio == usuario.IdComercio);
             if (!comercioExists)
             {
-                ModelState.AddModelError("IdComercio", "El comercio seleccionado no es válido.");
+                ModelState.AddModelError("IdComercio", "El comercio seleccionado no es vÃ¡lido.");
                 if (usuario.IdComercio != 0)
                 {
                     var comercio = await _context.Comercios.FindAsync(usuario.IdComercio);
@@ -97,7 +97,7 @@ namespace ProyectoFinal.Controllers
             var existe = await _context.Usuarios.AnyAsync(u => u.Identificacion == usuario.Identificacion);
             if (existe)
             {
-                TempData["Error"] = "Ya existe un usuario con esa identificación.";
+                TempData["Error"] = "Ya existe un usuario con esa identificaciÃ³n.";
                 return RedirectToAction(nameof(Crear), new { idComercio = usuario.IdComercio });
             }
 
@@ -107,6 +107,47 @@ namespace ProyectoFinal.Controllers
             TempData["Success"] = "Usuario creado correctamente.";
             return RedirectToAction(nameof(Index));
         }
-     
+
+        //GET Editar Usuario
+        public async Task<IActionResult> Editar(int id)
+        {
+            var usuario = await _context.Usuarios.FindAsync(id);
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+
+            if (usuario.IdComercio != 0)
+            {
+                var comercio = await _context.Comercios.FindAsync(usuario.IdComercio);
+                if (comercio != null)
+                    ViewBag.ComercioNombre = comercio.Nombre;
+            }
+
+            return View(usuario);
+        }
+
+        //POST Editar Usuario
+        [HttpPost]
+        public async Task<IActionResult> Editar(Usuario usuario)
+        {
+            if (!ModelState.IsValid)
+            {
+                if (usuario.IdComercio != 0)
+                {
+                    var comercio = await _context.Comercios.FindAsync(usuario.IdComercio);
+                    if (comercio != null)
+                        ViewBag.ComercioNombre = comercio.Nombre;
+                }
+                return View(usuario);
+            }
+
+            usuario.FechaDeModificacion = DateTime.Now;
+            _context.Update(usuario);
+            await _context.SaveChangesAsync();
+
+            TempData["Success"] = "Usuario actualizado correctamente.";
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
