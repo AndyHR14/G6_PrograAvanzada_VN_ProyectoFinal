@@ -14,6 +14,7 @@ namespace ProyectoFinal.Data
         public DbSet<Sinpe> Sinpes { get; set; }
         public DbSet<BitacoraEvento> BitacoraEventos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Configuracion> Configuracion { get; set; }
 
         // Metodo para configurar las relaciones
         protected override void OnModelCreating(ModelBuilder modelBuilder)

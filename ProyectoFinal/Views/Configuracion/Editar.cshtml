@@ -1,0 +1,65 @@
+﻿@model ProyectoFinal.Models.Configuracion
+
+@{
+    ViewData["Title"] = "Editar Configuración";
+}
+
+<div class="container py-4">
+    <h2>Editar Configuración</h2>
+    <hr />
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <form asp-action="Editar" method="post">
+                        <input type="hidden" asp-for="IdConfiguracion" />
+                        <input type="hidden" asp-for="IdComercio" />
+
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="form-label">Comercio</label>
+                                <input type="text" class="form-control" value="@Model.Comercio?.Nombre" disabled readonly />
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label asp-for="TipoConfiguracion" class="form-label">Tipo Configuración</label>
+                                <select asp-for="TipoConfiguracion" class="form-select">
+                                    <option value="1">1 - Plataforma</option>
+                                    <option value="2">2 - Externa</option>
+                                    <option value="3">3 - Ambas</option>
+                                </select>
+                                <span asp-validation-for="TipoConfiguracion" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label asp-for="Comision" class="form-label">Comisión</label>
+                                <input asp-for="Comision" class="form-control" />
+                                <span asp-validation-for="Comision" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label asp-for="Estado" class="form-label">Estado</label>
+                                <select asp-for="Estado" class="form-select">
+                                    <option value="true">Activo</option>
+                                    <option value="false">Inactivo</option>
+                                </select>
+                                <span asp-validation-for="Estado" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2 justify-content-end mt-4">
+                            <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

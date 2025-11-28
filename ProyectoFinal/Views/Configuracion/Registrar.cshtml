@@ -1,0 +1,55 @@
+﻿@model ProyectoFinal.Models.Configuracion
+
+@{
+    ViewData["Title"] = "Registrar Configuración";
+}
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <form asp-action="Crear" method="post">
+                <div class="mb-3">
+                    <label asp-for="IdComercio" class="form-label">Comercio</label>
+                    <select asp-for="IdComercio" class="form-select" asp-items="ViewBag.IdComercio">
+                        <option value="">-- Seleccione un comercio --</option>
+                    </select>
+                    <span asp-validation-for="IdComercio" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="TipoConfiguracion" class="form-label">Tipo de Configuración</label>
+                    <select asp-for="TipoConfiguracion" class="form-select" required>
+                        <option value="">-- Seleccione un tipo --</option>
+                        <option value="1">Plataforma</option>
+                        <option value="2">Externa</option>
+                        <option value="3">Ambas</option>
+                    </select>
+                    <span asp-validation-for="TipoConfiguracion" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Comision" class="form-label">Comisión (%)</label>
+                    <input asp-for="Comision" type="number" class="form-control" min="0" required />
+                    <span asp-validation-for="Comision" class="text-danger"></span>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-save"></i> Guardar
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i> Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
