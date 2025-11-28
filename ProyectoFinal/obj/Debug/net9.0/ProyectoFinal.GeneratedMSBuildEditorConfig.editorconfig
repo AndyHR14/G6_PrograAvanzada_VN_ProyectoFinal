@@ -9,105 +9,105 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ProyectoFinal
 build_property.RootNamespace = ProyectoFinal
-build_property.ProjectDir = /Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/
+build_property.ProjectDir = C:\Users\gabri\Desktop\Progamaton\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal
+build_property.MSBuildProjectDirectory = C:\Users\gabri\Desktop\Progamaton\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Cajas/Editar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FqYXMvRWRpdGFyLmNzaHRtbA==
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Cajas/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FqYXNcRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Cajas/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FqYXMvSW5kZXguY3NodG1s
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Cajas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FqYXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Cajas/Registrar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FqYXMvUmVnaXN0cmFyLmNzaHRtbA==
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Cajas/Registrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FqYXNcUmVnaXN0cmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Cajas/VerSinpe.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FqYXMvVmVyU2lucGUuY3NodG1s
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Cajas/VerSinpe.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FqYXNcVmVyU2lucGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Comercio/Crear.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29tZXJjaW8vQ3JlYXIuY3NodG1s
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Comercio/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tZXJjaW9cQ3JlYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Comercio/Editar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29tZXJjaW8vRWRpdGFyLmNzaHRtbA==
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Comercio/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tZXJjaW9cRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Comercio/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29tZXJjaW8vSW5kZXguY3NodG1s
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Comercio/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tZXJjaW9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Comercio/VerDetalles.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29tZXJjaW8vVmVyRGV0YWxsZXMuY3NodG1s
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Comercio/VerDetalles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tZXJjaW9cVmVyRGV0YWxsZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Configuracion/Editar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29uZmlndXJhY2lvbi9FZGl0YXIuY3NodG1s
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Configuracion/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZmlndXJhY2lvblxFZGl0YXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Configuracion/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29uZmlndXJhY2lvbi9JbmRleC5jc2h0bWw=
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Configuracion/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZmlndXJhY2lvblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Configuracion/Registrar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29uZmlndXJhY2lvbi9SZWdpc3RyYXIuY3NodG1s
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Configuracion/Registrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZmlndXJhY2lvblxSZWdpc3RyYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Sinpe/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2lucGUvQ3JlYXRlLmNzaHRtbA==
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Sinpe/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lucGVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Sinpe/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2lucGUvSW5kZXguY3NodG1s
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Sinpe/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lucGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Usuarios/Crear.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXN1YXJpb3MvQ3JlYXIuY3NodG1s
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Usuarios/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQ3JlYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Usuarios/Editar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXN1YXJpb3MvRWRpdGFyLmNzaHRtbA==
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Usuarios/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Usuarios/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXN1YXJpb3MvSW5kZXguY3NodG1s
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Usuarios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/marksandoval/Documents/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-61pqvg9912
+[C:/Users/gabri/Desktop/Progamaton/G6_PrograAvanzada_VN_ProyectoFinal/ProyectoFinal/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-ww5h623m21

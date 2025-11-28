@@ -20,8 +20,57 @@
 
     <div class="card shadow-sm border-0">
         <div class="card-body">
+
+            <!-- Filtros -->
+            <div class="row g-3 mb-3">
+                <div class="col-12 col-md-4">
+                    <label for="filtroTexto" class="form-label">Buscar</label>
+                    <input type="text"
+                           id="filtroTexto"
+                           class="form-control"
+                           placeholder="Identificación, nombre, teléfono o correo">
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <label for="filtroTipoId" class="form-label">Tipo identificación</label>
+                    <select id="filtroTipoId" class="form-select">
+                        <option value="">Todos</option>
+                        <option value="Física">Física</option>
+                        <option value="Jurídica">Jurídica</option>
+                        <option value="N/D">N/D</option>
+                    </select>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <label for="filtroTipoComercio" class="form-label">Tipo de comercio</label>
+                    <select id="filtroTipoComercio" class="form-select">
+                        <option value="">Todos</option>
+                        <option value="Restaurantes">Restaurantes</option>
+                        <option value="Supermercados">Supermercados</option>
+                        <option value="Ferreterías">Ferreterías</option>
+                        <option value="Otros">Otros</option>
+                        <option value="No especificado">No especificado</option>
+                    </select>
+                </div>
+
+                <div class="col-6 col-md-2">
+                    <label for="filtroEstado" class="form-label">Estado</label>
+                    <select id="filtroEstado" class="form-select">
+                        <option value="">Todos</option>
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+                    </select>
+                </div>
+
+                <div class="col-6 col-md-2 d-flex align-items-end">
+                    <button type="button" id="btnLimpiarFiltros" class="btn btn-outline-secondary w-100">
+                        Limpiar
+                    </button>
+                </div>
+            </div>
+
             <div class="table-responsive">
-                <table class="table align-middle table-hover">
+                <table class="table align-middle table-hover" id="tablaComercios">
                     <thead class="table-light">
                         <tr>
                             <th class="text-nowrap">Identificación</th>
@@ -51,7 +100,7 @@
                                     _ => "No especificado"
                                 };
 
-                                <tr>
+                                <tr data-row="comercio">
                                     <td class="text-muted">@itemDato.Identificacion</td>
                                     <td>@tipoId</td>
                                     <td class="fw-semibold">@itemDato.Nombre</td>
@@ -97,13 +146,120 @@
                         }
                         else
                         {
-                            <tr>
+                            <tr id="filaSinDatos">
                                 <td colspan="8" class="text-center py-4 text-muted">No hay comercios registrados.</td>
                             </tr>
                         }
                     </tbody>
                 </table>
             </div>
+
+            <div id="mensajeSinResultados" class="text-center py-3 text-muted d-none">
+                No hay resultados que coincidan con los filtros.
+            </div>
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const inputTexto = document.getElementById('filtroTexto');
+            const selectTipoId = document.getElementById('filtroTipoId');
+            const selectTipoComercio = document.getElementById('filtroTipoComercio');
+            const selectEstado = document.getElementById('filtroEstado');
+            const btnLimpiar = document.getElementById('btnLimpiarFiltros');
+
+            const tabla = document.getElementById('tablaComercios');
+            const filas = tabla.querySelectorAll('tbody tr[data-row="comercio"]');
+            const mensajeSinResultados = document.getElementById('mensajeSinResultados');
+            const filaSinDatos = document.getElementById('filaSinDatos');
+
+            function normalizar(texto) {
+                return (texto || "")
+                    .toLowerCase()
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "");
+            }
+
+            function aplicarFiltros() {
+                const texto = normalizar(inputTexto.value.trim());
+                const tipoIdFiltro = selectTipoId.value;          // "Física", "Jurídica", "N/D" o ""
+                const tipoComercioFiltro = selectTipoComercio.value; // "Restaurantes", etc. o ""
+                const estadoFiltro = selectEstado.value;          // "Activo", "Inactivo" o ""
+
+                let hayVisibles = false;
+
+                filas.forEach(fila => {
+                    const celdas = fila.children;
+
+                    const identificacion = normalizar(celdas[0].innerText);
+                    const tipoIdTexto = (celdas[1].innerText || "").trim();
+                    const nombre = normalizar(celdas[2].innerText);
+                    const tipoComercioTexto = (celdas[3].innerText || "").trim();
+                    const telefono = normalizar(celdas[4].innerText);
+                    const correo = normalizar(celdas[5].innerText);
+                    const estadoTexto = (celdas[6].innerText || "").trim();
+
+                    const textoBuscable = identificacion + " " + nombre + " " + telefono + " " + correo;
+
+                    // 1. Filtro texto general
+                    let coincideTexto = true;
+                    if (texto) {
+                        coincideTexto = textoBuscable.includes(texto);
+                    }
+
+                    // 2. Filtro Tipo Identificación
+                    let coincideTipoId = true;
+                    if (tipoIdFiltro) {
+                        coincideTipoId = (tipoIdTexto === tipoIdFiltro);
+                    }
+
+                    // 3. Filtro Tipo Comercio
+                    let coincideTipoComercio = true;
+                    if (tipoComercioFiltro) {
+                        coincideTipoComercio = (tipoComercioTexto === tipoComercioFiltro);
+                    }
+
+                    // 4. Filtro Estado
+                    let coincideEstado = true;
+                    if (estadoFiltro) {
+                        coincideEstado = (estadoTexto === estadoFiltro);
+                    }
+
+                    if (coincideTexto && coincideTipoId && coincideTipoComercio && coincideEstado) {
+                        fila.style.display = "";
+                        hayVisibles = true;
+                    } else {
+                        fila.style.display = "none";
+                    }
+                });
+
+                // Mostrar/ocultar mensaje de "sin resultados"
+                if (mensajeSinResultados) {
+                    mensajeSinResultados.classList.toggle('d-none', hayVisibles || filas.length === 0);
+                }
+
+                // Si no hay datos iniciales (solo fila "No hay comercios registrados"), no mostramos el mensaje de filtros
+                if (filaSinDatos && filas.length === 0) {
+                    mensajeSinResultados.classList.add('d-none');
+                }
+            }
+
+            function limpiarFiltros() {
+                inputTexto.value = "";
+                selectTipoId.value = "";
+                selectTipoComercio.value = "";
+                selectEstado.value = "";
+                aplicarFiltros();
+            }
+
+            inputTexto.addEventListener('input', aplicarFiltros);
+            selectTipoId.addEventListener('change', aplicarFiltros);
+            selectTipoComercio.addEventListener('change', aplicarFiltros);
+            selectEstado.addEventListener('change', aplicarFiltros);
+            btnLimpiar.addEventListener('click', limpiarFiltros);
+        });
+    </script>
+}
+

@@ -20,8 +20,36 @@
 
     <div class="card shadow-sm border-0">
         <div class="card-body">
+
+            <!-- Filtros -->
+            <div class="row g-3 mb-3">
+                <div class="col-12 col-md-6">
+                    <label for="filtroTexto" class="form-label">Buscar</label>
+                    <input type="text"
+                           id="filtroTexto"
+                           class="form-control"
+                           placeholder="Nombre, descripción o teléfono SINPE">
+                </div>
+
+                <div class="col-8 col-md-4">
+                    <label for="filtroEstado" class="form-label">Estado</label>
+                    <select id="filtroEstado" class="form-select">
+                        <option value="">Todos</option>
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+                    </select>
+                </div>
+
+                <div class="col-4 col-md-2 d-flex align-items-end">
+                    <button type="button" id="btnLimpiarFiltros" class="btn btn-outline-secondary w-100">
+                        Limpiar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tabla -->
             <div class="table-responsive">
-                <table class="table align-middle table-hover">
+                <table class="table align-middle table-hover" id="tablaCajas">
                     <thead class="table-light">
                         <tr>
                             <th scope="col" class="text-nowrap">ID</th>
@@ -38,7 +66,7 @@
                         {
                             foreach (var itemCaja in Model)
                             {
-                                <tr>
+                                <tr data-row="caja">
                                     <td class="text-muted">@itemCaja.IdCaja</td>
                                     <td class="fw-semibold">@itemCaja.Nombre</td>
                                     <td>
@@ -81,7 +109,7 @@
                         }
                         else
                         {
-                            <tr>
+                            <tr id="filaSinDatos">
                                 <td colspan="7" class="text-center py-4 text-muted">
                                     No hay cajas registradas.
                                 </td>
@@ -90,6 +118,78 @@
                     </tbody>
                 </table>
             </div>
+
+            <div id="mensajeSinResultados" class="text-center py-3 text-muted d-none">
+                No hay resultados que coincidan con los filtros.
+            </div>
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const inputTexto = document.getElementById('filtroTexto');
+            const selectEstado = document.getElementById('filtroEstado');
+            const btnLimpiar = document.getElementById('btnLimpiarFiltros');
+
+            const tabla = document.getElementById('tablaCajas');
+            const filas = tabla.querySelectorAll('tbody tr[data-row="caja"]');
+            const mensajeSinResultados = document.getElementById('mensajeSinResultados');
+            const filaSinDatos = document.getElementById('filaSinDatos');
+
+            function normalizar(texto) {
+                return (texto || "")
+                    .toLowerCase()
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "");
+            }
+
+            function aplicarFiltros() {
+                const texto = normalizar(inputTexto.value.trim());
+                const estadoFiltro = selectEstado.value;
+
+                let hayVisibles = false;
+
+                filas.forEach(fila => {
+                    const celdas = fila.children;
+
+                    const nombre = normalizar(celdas[1].innerText);
+                    const descripcion = normalizar(celdas[2].innerText);
+                    const telefono = normalizar(celdas[3].innerText);
+                    const estadoTexto = (celdas[5].innerText || "").trim();
+
+                    const textoBuscable = nombre + " " + descripcion + " " + telefono;
+
+                    let coincideTexto = texto ? textoBuscable.includes(texto) : true;
+                    let coincideEstado = estadoFiltro ? estadoTexto === estadoFiltro : true;
+
+                    if (coincideTexto && coincideEstado) {
+                        fila.style.display = "";
+                        hayVisibles = true;
+                    } else {
+                        fila.style.display = "none";
+                    }
+                });
+
+                mensajeSinResultados.classList.toggle('d-none', hayVisibles || filas.length === 0);
+
+                if (filaSinDatos && filas.length === 0) {
+                    mensajeSinResultados.classList.add('d-none');
+                }
+            }
+
+            function limpiarFiltros() {
+                inputTexto.value = "";
+                selectEstado.value = "";
+                aplicarFiltros();
+            }
+
+            inputTexto.addEventListener('input', aplicarFiltros);
+            selectEstado.addEventListener('change', aplicarFiltros);
+            btnLimpiar.addEventListener('click', limpiarFiltros);
+
+        });
+    </script>
+}

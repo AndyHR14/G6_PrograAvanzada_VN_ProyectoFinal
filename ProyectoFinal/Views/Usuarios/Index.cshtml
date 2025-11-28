@@ -4,50 +4,169 @@
     ViewData["Title"] = "Usuarios";
 }
 
-<h2>Usuarios</h2>
+<div class="container my-4">
+    <div class="row">
+        <div class="col-12">
 
-@if (TempData["Success"] != null)
-{
-    <div class="alert alert-success">@TempData["Success"]</div>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1 class="h4 mb-0">Usuarios</h1>
+                <div class="btn-group">
+                    <a class="btn btn-primary" href="/Usuarios/Crear">Crear nuevo</a>
+                    <a class="btn btn-outline-secondary" href="/">Volver</a>
+                </div>
+            </div>
+
+            @if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    @TempData["Success"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                </div>
+            }
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+
+                    <!-- Filtros de búsqueda -->
+                    <div class="row g-3 mb-3">
+                        <div class="col-12 col-md-6">
+                            <label for="busquedaGeneral" class="form-label">Buscar</label>
+                            <input type="text"
+                                   id="busquedaGeneral"
+                                   class="form-control"
+                                   placeholder="Nombre, apellidos, identificación o correo">
+                        </div>
+
+                        <div class="col-12 col-md-3">
+                            <label for="busquedaComercio" class="form-label">Comercio</label>
+                            <input type="text"
+                                   id="busquedaComercio"
+                                   class="form-control"
+                                   placeholder="Nombre del comercio">
+                        </div>
+
+                        <div class="col-12 col-md-3">
+                            <label for="filtroEstado" class="form-label">Estado</label>
+                            <select id="filtroEstado" class="form-select">
+                                <option value="">Todos</option>
+                                <option value="Activo">Activo</option>
+                                <option value="Inactivo">Inactivo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Tabla de usuarios -->
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped table-hover align-middle" id="tablaUsuarios">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Comercio</th>
+                                    <th>Nombres</th>
+                                    <th>Primer Apellido</th>
+                                    <th>Segundo Apellido</th>
+                                    <th>Identificación</th>
+                                    <th>Correo Electrónico</th>
+                                    <th>Fecha de registro</th>
+                                    <th>Fecha de modificación</th>
+                                    <th>Estado</th>
+                                    <th class="text-center">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@(item.Comercio != null ? item.Comercio.Nombre : "-")</td>
+                                        <td>@item.Nombres</td>
+                                        <td>@item.PrimerApellido</td>
+                                        <td>@item.SegundoApellido</td>
+                                        <td>@item.Identificacion</td>
+                                        <td>@item.CorreoElectronico</td>
+                                        <td>@item.FechaDeRegistro.ToString("g")</td>
+                                        <td>@(item.FechaDeModificacion.HasValue? item.FechaDeModificacion.Value.ToString("g") : "-")</td>
+                                        <td>@(item.Estado ? "Activo" : "Inactivo")</td>
+                                        <td class="text-center">
+                                            <a href="/Usuarios/Editar/@item.IdUsuario" class="btn btn-sm btn-outline-primary">
+                                                Editar
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const inputBuscar = document.getElementById('busquedaGeneral');
+            const inputComercio = document.getElementById('busquedaComercio');
+            const selectEstado = document.getElementById('filtroEstado');
+            const tabla = document.getElementById('tablaUsuarios');
+            const filas = tabla.querySelectorAll('tbody tr');
+
+            // Normaliza texto: minúsculas y sin acentos
+            function normalizar(texto) {
+                return (texto || "")
+                    .toLowerCase()
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "");
+            }
+
+            function aplicarFiltros() {
+                const texto = normalizar(inputBuscar.value.trim());
+                const textoComercio = normalizar(inputComercio.value.trim());
+                const estadoFiltro = selectEstado.value; // "Activo", "Inactivo" o ""
+
+                filas.forEach(fila => {
+                    const celdas = fila.children;
+
+                    const comercio = normalizar(celdas[0].innerText);
+                    const nombres = normalizar(celdas[1].innerText);
+                    const primerApellido = normalizar(celdas[2].innerText);
+                    const segundoApellido = normalizar(celdas[3].innerText);
+                    const identificacion = normalizar(celdas[4].innerText);
+                    const correo = normalizar(celdas[5].innerText);
+                    const estadoTexto = (celdas[8].innerText || "").trim(); // "Activo"/"Inactivo"
+
+                    // Filtro texto general
+                    let coincideTexto = true;
+                    if (texto) {
+                        const buscable = nombres + " " + primerApellido + " " + segundoApellido +
+                            " " + identificacion + " " + correo;
+                        coincideTexto = buscable.includes(texto);
+                    }
+
+                    // Filtro por comercio
+                    let coincideComercio = true;
+                    if (textoComercio) {
+                        coincideComercio = comercio.includes(textoComercio);
+                    }
+
+                    // Filtro por estado
+                    let coincideEstado = true;
+                    if (estadoFiltro) {
+                        coincideEstado = (estadoTexto === estadoFiltro);
+                    }
+
+                    if (coincideTexto && coincideComercio && coincideEstado) {
+                        fila.style.display = "";
+                    } else {
+                        fila.style.display = "none";
+                    }
+                });
+            }
+
+            inputBuscar.addEventListener('input', aplicarFiltros);
+            inputComercio.addEventListener('input', aplicarFiltros);
+            selectEstado.addEventListener('change', aplicarFiltros);
+        });
+    </script>
 }
-
-<p>
-    <a class="btn btn-primary" href="/Usuarios/Crear">Crear nuevo</a>
-    <a class="btn btn-secondary" href="/">Volver</a>
-</p>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Comercio</th>
-            <th>Nombres</th>
-            <th>Primer Apellido</th>
-            <th>Segundo Apellido</th>
-            <th>Identificación</th>
-            <th>Correo Electrónico</th>
-            <th>Fecha de registro</th>
-            <th>Fecha de modificación</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model)
-{
-        <tr>
-            <td>@(item.Comercio != null ? item.Comercio.Nombre : "-")</td>
-            <td>@item.Nombres</td>
-            <td>@item.PrimerApellido</td>
-            <td>@item.SegundoApellido</td>
-            <td>@item.Identificacion</td>
-            <td>@item.CorreoElectronico</td>
-            <td>@item.FechaDeRegistro.ToString("g")</td>
-            <td>@(item.FechaDeModificacion.HasValue ? item.FechaDeModificacion.Value.ToString("g") : "-")</td>
-            <td>@(item.Estado ? "Activo" : "Inactivo")</td>
-            <td>
-                <a href="/Usuarios/Editar/@item.IdUsuario">Editar</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
