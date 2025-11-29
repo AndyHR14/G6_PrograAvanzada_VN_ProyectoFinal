@@ -2434,23 +2434,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gabri\\.nuget\\packages\\": {},
+    "C:\\Users\\XSF\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gabri\\Desktop\\Progamaton\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
+      "projectUniqueName": "C:\\Users\\XSF\\Desktop\\UNIVERSIDAD\\PA\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
       "projectName": "ProyectoFinal",
-      "projectPath": "C:\\Users\\gabri\\Desktop\\Progamaton\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
-      "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gabri\\Desktop\\Progamaton\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\obj\\",
+      "projectPath": "C:\\Users\\XSF\\Desktop\\UNIVERSIDAD\\PA\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
+      "packagesPath": "C:\\Users\\XSF\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\XSF\\Desktop\\UNIVERSIDAD\\PA\\G6_PrograAvanzada_VN_ProyectoFinal\\ProyectoFinal\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\XSF\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2477,7 +2477,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -2519,7 +2519,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
