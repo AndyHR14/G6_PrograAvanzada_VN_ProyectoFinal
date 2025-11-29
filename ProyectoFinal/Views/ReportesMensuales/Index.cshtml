@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ProyectoFinal.Models.ReporteMensual>
+
+<h1>Reportes Mensuales</h1>
+
+<form asp-action="GenerarReportes" method="post" style="display:inline;">
+    <button type="submit" class="btn btn-primary">Generar Reportes</button>
+</form>
+
+<table class="table" id="reportes-table">
+    <thead>
+        <tr>
+            <th>Nombre del comercio</th>
+            <th>Cantidad de Cajas</th>
+            <th>Monto Recaudado</th>
+            <th>Cantidad de SINPES</th>
+            <th>Monto Total Comisión</th>
+            <th>Fecha del Reporte</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr data-id-comercio="@item.IdComercio">
+                <td class="nombre-comercio">Cargando...</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CantidadDeCajas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MontoTotalRecaudado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CantidadDeSINPES)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MontoTotalComision)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaDelReporte)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+
+    <script>
+
+        $(document).ready(function () {
+            $('#reportes-table tbody tr[data-id-comercio]').each(function () {
+                var fila = $(this);
+                var idComercio = fila.data('id-comercio');
+
+                $.getJSON('/ReportesMensuales/GetNombreComercio/' + idComercio, function (data) {
+                    if (data && data.nombre) {
+                        fila.find('.nombre-comercio').text(data.nombre);
+                    } else {
+                        fila.find('.nombre-comercio').text('No encontrado');
+                    }
+                }).fail(function () {
+                    fila.find('.nombre-comercio').text('Error de carga');
+                });
+            });
+        });
+    </script>
+}
+}
