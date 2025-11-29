@@ -13,9 +13,5 @@ namespace ProyectoFinal.Data
         public DbSet<Cajas> Cajas { get; set; }
         public DbSet<Sinpe> Sinpes { get; set; }
         public DbSet<BitacoraEvento> BitacoraEventos { get; set; }
-        public DbSet<ConfiguracionComercio> Configuracion { get; set; }
-        public DbSet<ReporteMensual> ReportesMensuales { get; set; }
-
-
     }
 }

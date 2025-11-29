@@ -374,8 +374,8 @@ C:\Users\XSF\Desktop\UNIVERSIDAD\PA\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoF
 C:\Users\XSF\Desktop\UNIVERSIDAD\PA\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\compressed\8gr9y5y5l7-9vr69e8ynj.gz
 C:\Users\XSF\Desktop\UNIVERSIDAD\PA\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\compressed\ld1rknrjos-87fc7y1x7t.gz
 C:\Users\XSF\Desktop\UNIVERSIDAD\PA\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\compressed\ynpwt9bcbn-mlv21k5csn.gz
-C:\Users\XSF\Desktop\UNIVERSIDAD\PA\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\compressed\tjgqih7hym-vrp4x263f6.gz
-C:\Users\XSF\Desktop\UNIVERSIDAD\PA\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\compressed\bniziz8ncy-vrp4x263f6.gz
+C:\Users\XSF\Desktop\UNIVERSIDAD\PA\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\compressed\tjgqih7hym-bbcraojt63.gz
+C:\Users\XSF\Desktop\UNIVERSIDAD\PA\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\compressed\bniziz8ncy-bbcraojt63.gz
 C:\Users\XSF\Desktop\UNIVERSIDAD\PA\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\XSF\Desktop\UNIVERSIDAD\PA\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\XSF\Desktop\UNIVERSIDAD\PA\G6_PrograAvanzada_VN_ProyectoFinal\ProyectoFinal\obj\Debug\net9.0\staticwebassets.development.json
