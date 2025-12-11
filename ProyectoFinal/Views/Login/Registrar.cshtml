@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Registrar";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/Login.css" />
+
+<div class="login-container">
+
+    <div class="login-left">
+        <div class="brand">
+            <span class="logo-circle"></span>
+            <h3>Banco Los Patitos </h3>
+        </div>
+
+      
+
+        <form asp-controller="Login"
+              asp-action="Registrar"
+              method="post"
+              class="login-form">
+        <div asp-validation-summary="All" class="text-danger" style="margin-bottom: 10px;"></div>
+
+            <label class="form-label">Correo</label>
+            <input type="email"
+                   name="Correo"
+                   class="form-input"
+                   placeholder="Ingrese su correo"
+                   required />
+
+            <label class="form-label">Contraseña</label>
+            <input type="password"
+                   name="Password"
+                   class="form-input"
+                   placeholder="Ingrese su contraseña"
+                   required />
+
+            <label class="form-label">Rol</label>
+            <select name="Rol" class="form-input" required>
+                <option value="">Seleccione un rol</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Cajero">Cajero</option>
+            </select>
+
+            <button type="submit" class="btn-login">Registrarse</button>
+
+            <button type="button"
+                    class="btn-login"
+                    onclick="window.location.href='@Url.Action("Login", "Login")'">
+                Volver al Login
+            </button>
+
+        </form>
+    </div>
+
+    <div class="login-right">
+        <div class="image-overlay"></div>
+        <img src="https://images.unsplash.com/photo-1633183335303-28fced40e3d3?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+             class="hero-image" />
+    </div>
+
+</div>

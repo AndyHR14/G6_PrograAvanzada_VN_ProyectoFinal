@@ -20,10 +20,10 @@ namespace ProyectoFinal.Controllers
         // GET Usuarios
         public async Task<IActionResult> Index()
         {
-            var usuarios = await _context.Usuarios
+            var usuario = await _context.Usuario
                 .Include(u => u.Comercio)
                 .ToListAsync();
-            return View(usuarios);
+            return View(usuario);
         }
 
         //GET Crear Usuarios
@@ -94,14 +94,14 @@ namespace ProyectoFinal.Controllers
             }
 
             //Validacion de identificacion unica
-            var existe = await _context.Usuarios.AnyAsync(u => u.Identificacion == usuario.Identificacion);
+            var existe = await _context.Usuario.AnyAsync(u => u.Identificacion == usuario.Identificacion);
             if (existe)
             {
                 TempData["Error"] = "Ya existe un usuario con esa identificación.";
                 return RedirectToAction(nameof(Crear), new { idComercio = usuario.IdComercio });
             }
 
-            _context.Usuarios.Add(usuario);
+            _context.Usuario.Add(usuario);
             await _context.SaveChangesAsync();
 
             TempData["Success"] = "Usuario creado correctamente.";
@@ -111,7 +111,7 @@ namespace ProyectoFinal.Controllers
         //GET Editar Usuario
         public async Task<IActionResult> Editar(int id)
         {
-            var usuario = await _context.Usuarios.FindAsync(id);
+            var usuario = await _context.Usuario.FindAsync(id);
             if (usuario == null)
             {
                 return NotFound();
