@@ -79,3 +79,86 @@
     border: 1px solid #e9ecef;
     color: #333;
 }
+
+/* ===========================
+   Home / Index
+   =========================== */
+
+/* Utilidades */
+.btn-pill {
+    border-radius: 999px;
+}
+
+.round-3 {
+    border-radius: 1.25rem;
+}
+
+.shadow-soft {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .06);
+}
+
+.hero-kicker {
+    letter-spacing: .2px;
+    font-weight: 600;
+    font-size: .95rem;
+}
+
+/* ===========================
+   Gradientes y tarjetas
+   =========================== */
+
+.gradient-violet {
+    background: linear-gradient( 135deg, rgba(142, 84, 233, .18), rgba(88, 196, 255, .15) );
+}
+
+.gradient-blue {
+    background: linear-gradient( 135deg, rgba(88, 196, 255, .18), rgba(13, 110, 253, .10) );
+}
+
+.gradient-green {
+    background: linear-gradient( 135deg, rgba(25, 135, 84, .16), rgba(82, 196, 26, .10) );
+}
+
+.card-glass {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.card-cta {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+/* ===========================
+   Hero – gráfico decorativo
+   =========================== */
+
+.chart-bars {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    height: 120px;
+    align-items: end;
+    padding: 10px;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, .55);
+    border: 1px solid rgba(0, 0, 0, .06);
+}
+
+    .chart-bars span {
+        display: block;
+        height: var(--h);
+        border-radius: 999px;
+        background: rgba(0, 0, 0, .75);
+        opacity: .75;
+    }
+
+/* ===========================
+   CTA final
+   =========================== */
+
+.cta-bg {
+    background: linear-gradient( 135deg, rgba(13, 110, 253, .95), rgba(25, 135, 84, .9) );
+    overflow: hidden;
+}

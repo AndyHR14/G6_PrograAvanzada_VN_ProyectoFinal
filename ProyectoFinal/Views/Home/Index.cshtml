@@ -2,16 +2,18 @@
     ViewData["Title"] = "Inicio";
 }
 
-
 <div class="container py-5">
-    <!-- Hero -->
-    <div class="row align-items-center gy-4">
+
+    <!-- HERO -->
+    <section class="row align-items-center gy-4">
         <div class="col-12 col-lg-6">
-            <div class="mb-2 hero-kicker text-secondary">Pagos electrónicos • SINPE</div>
+            <div class="mb-2 hero-kicker text-secondary">Pagos electrónicos • SINPE • Control por comercio</div>
+
             <h1 class="display-5 fw-semibold mb-3">
-                Seguro por diseño,<br class="d-none d-md-inline">
+                Seguro por diseño,<br class="d-none d-md-inline" />
                 confiable para tu comercio.
             </h1>
+
             <p class="text-secondary mb-4">
                 Gestiona comercios, cajas y transacciones SINPE con una interfaz clara y consistente.
                 Centraliza tus operaciones y obtén visibilidad en tiempo real.
@@ -21,24 +23,66 @@
                 <a asp-controller="Sinpe" asp-action="Create" class="btn btn-primary btn-lg btn-pill px-4">
                     <i class="bi bi-lightning-charge-fill me-1"></i> Iniciar transferencia
                 </a>
+
+                <a asp-controller="Comercio" asp-action="Index" class="btn btn-outline-dark btn-lg btn-pill px-4">
+                    <i class="bi bi-building me-1"></i> Ver comercios
+                </a>
             </div>
 
-            <div class="d-flex gap-4 mt-4 text-secondary">
+            <!-- CONFIANZA (equivalente a logos/validación social) -->
+            <div class="row g-2 mt-4">
+                <div class="col-12 col-md-4">
+                    <div class="p-3 border rounded-4 bg-white shadow-soft">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="badge bg-primary-subtle text-primary border border-primary-subtle">
+                                <i class="bi bi-shield-lock"></i>
+                            </span>
+                            <div class="small fw-semibold">Seguridad</div>
+                        </div>
+                        <div class="text-secondary small mt-1">Flujo controlado y trazabilidad.</div>
+                    </div>
+                </div>
 
+                <div class="col-12 col-md-4">
+                    <div class="p-3 border rounded-4 bg-white shadow-soft">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                <i class="bi bi-diagram-3"></i>
+                            </span>
+                            <div class="small fw-semibold">Centralización</div>
+                        </div>
+                        <div class="text-secondary small mt-1">Comercios y cajas en un solo lugar.</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="p-3 border rounded-4 bg-white shadow-soft">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="badge bg-info-subtle text-info border border-info-subtle">
+                                <i class="bi bi-activity"></i>
+                            </span>
+                            <div class="small fw-semibold">Tiempo real</div>
+                        </div>
+                        <div class="text-secondary small mt-1">Visibilidad operativa consistente.</div>
+                    </div>
+                </div>
             </div>
         </div>
 
+        <!-- HERO VISUAL -->
         <div class="col-12 col-lg-6">
             <!-- Carta Principal -->
             <div class="card border-0 shadow-soft round-3 mb-4 gradient-violet">
                 <div class="card-body p-4 position-relative">
                     <div class="d-flex justify-content-between align-items-start mb-3">
                         <div>
-                            <div class="text-dark-50 small">SINPE</div>
-                            <h5 class="mb-0">Bienvenido</h5>
+                            <div class="text-dark-50 small">Panel SINPE</div>
+                            <h5 class="mb-0">Resumen operativo</h5>
                         </div>
-                        <div>
-                        </div>
+
+                        <span class="badge bg-light text-dark border rounded-pill">
+                            <i class="bi bi-check2-circle me-1"></i> Activo
+                        </span>
                     </div>
 
                     <div class="row align-items-end">
@@ -53,89 +97,241 @@
                                 <span style="--h:70%"></span>
                             </div>
                         </div>
+
                         <div class="col-5">
+                            <div class="p-3 rounded-4 bg-white bg-opacity-75 border">
+                                <div class="text-secondary small">Acción rápida</div>
+                                <div class="fw-semibold">Registrar transacción</div>
+                                <a asp-controller="Sinpe" asp-action="Create" class="btn btn-dark btn-sm mt-2 btn-pill w-100">
+                                    <i class="bi bi-arrow-right-circle me-1"></i> Ir ahora
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Cartas inferiores -->
+            <!-- Cartas inferiores (atajos) -->
             <div class="row g-3">
                 <div class="col-12 col-md-6">
-                    <div class="card border-0 shadow-soft round-3 gradient-blue position-relative card-glass">
+                    <div class="card border-0 shadow-soft round-3 gradient-blue position-relative card-glass h-100">
                         <div class="card-cta">
-                            <a asp-controller="Cajas" asp-action="Index" class="btn btn-light btn-sm"><i class="bi bi-arrow-up-right"></i></a>
+                            <a asp-controller="Cajas" asp-action="Index" class="btn btn-light btn-sm btn-pill">
+                                <i class="bi bi-arrow-up-right"></i>
+                            </a>
                         </div>
                         <div class="card-body p-4">
-                            <div class="text-secondary small mb-1">Cajas activas</div>
-                            <h5 class="mb-2">Ver Cajas Activas</h5>
-                            <div class="text-secondary small"></div>
+                            <div class="text-secondary small mb-1">Cajas</div>
+                            <h5 class="mb-2">Ver cajas activas</h5>
+                            <div class="text-secondary small">Administra cajas y teléfonos asociados.</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6">
-                    <div class="card border-0 shadow-soft round-3 gradient-green position-relative card-glass">
+                    <div class="card border-0 shadow-soft round-3 gradient-green position-relative card-glass h-100">
                         <div class="card-cta">
-                            <a asp-controller="Comercio" asp-action="Index" class="btn btn-light btn-sm"><i class="bi bi-arrow-up-right"></i></a>
+                            <a asp-controller="Comercio" asp-action="Index" class="btn btn-light btn-sm btn-pill">
+                                <i class="bi bi-arrow-up-right"></i>
+                            </a>
                         </div>
                         <div class="card-body p-4">
-                            <div class="text-secondary small mb-1">Listado de comercios</div>
-                            <h5 class="mb-2">Ver Comercios Activos</h5>
-                            <div class="text-secondary small"></div>
+                            <div class="text-secondary small mb-1">Comercios</div>
+                            <h5 class="mb-2">Gestionar comercios</h5>
+                            <div class="text-secondary small">Crea, edita y consulta comercios.</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Parte inferior -->
-    <div class="row g-3 mt-5">
-        <div class="col-12 col-md-4">
-            <div class="card h-100 border-0 shadow-soft round-3">
-                <div class="card-body p-4">
-                    <div class="d-flex align-items-center mb-2">
-                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle me-2"><i class="bi bi-receipt"></i></span>
-                        <h6 class="mb-0">Registrar SINPE</h6>
+    <!-- BENEFICIOS (ACCORDION) -->
+    <section class="mt-5">
+        <div class="row align-items-start gy-4">
+            <div class="col-12 col-lg-5">
+                <div class="text-secondary small mb-2">Visión general</div>
+                <h2 class="h3 fw-semibold mb-3">¿Qué puedes gestionar desde el sistema?</h2>
+                <p class="text-secondary mb-0">
+                    Organiza tu operación por comercio, administra cajas y registra transacciones SINPE con trazabilidad.
+                    Esta estructura te permite controlar el flujo y reducir errores operativos.
+                </p>
+            </div>
+
+            <div class="col-12 col-lg-7">
+                <div class="accordion shadow-soft border rounded-4 overflow-hidden" id="beneficiosAccordion">
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="hOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#cOne" aria-expanded="true" aria-controls="cOne">
+                                01 — Comercios (estructura base)
+                            </button>
+                        </h2>
+                        <div id="cOne" class="accordion-collapse collapse show" aria-labelledby="hOne" data-bs-parent="#beneficiosAccordion">
+                            <div class="accordion-body text-secondary">
+                                Registra comercios y mantén su información organizada. Desde aquí se conectan las cajas y la operación SINPE.
+                                <div class="mt-3 d-flex gap-2 flex-wrap">
+                                    <a asp-controller="Comercio" asp-action="Index" class="btn btn-sm btn-outline-dark btn-pill">
+                                        <i class="bi bi-building me-1"></i> Ir a Comercios
+                                    </a>
+                                    <a asp-controller="Comercio" asp-action="Crear" class="btn btn-sm btn-dark btn-pill">
+                                        <i class="bi bi-plus-circle me-1"></i> Nuevo Comercio
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-secondary small mb-3">Simula pagos a teléfonos asociados a cajas del comercio.</p>
-                    <a asp-controller="Sinpe" asp-action="Create" class="btn btn-sm btn-primary btn-pill">
-                        <i class="bi bi-lightning-charge me-1"></i> Nuevo SINPE
-                    </a>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="hTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cTwo" aria-expanded="false" aria-controls="cTwo">
+                                02 — Cajas (operación diaria)
+                            </button>
+                        </h2>
+                        <div id="cTwo" class="accordion-collapse collapse" aria-labelledby="hTwo" data-bs-parent="#beneficiosAccordion">
+                            <div class="accordion-body text-secondary">
+                                Crea y edita cajas vinculadas a un comercio. Asocia teléfonos para registrar transferencias y mantener trazabilidad.
+                                <div class="mt-3 d-flex gap-2 flex-wrap">
+                                    <a asp-controller="Cajas" asp-action="Index" class="btn btn-sm btn-outline-info btn-pill">
+                                        <i class="bi bi-box-seam me-1"></i> Ir a Cajas
+                                    </a>
+                                    <a asp-controller="Cajas" asp-action="Registrar" class="btn btn-sm btn-info btn-pill text-white">
+                                        <i class="bi bi-plus-circle me-1"></i> Nueva Caja
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="hThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cThree" aria-expanded="false" aria-controls="cThree">
+                                03 — Transacciones SINPE (registro y trazabilidad)
+                            </button>
+                        </h2>
+                        <div id="cThree" class="accordion-collapse collapse" aria-labelledby="hThree" data-bs-parent="#beneficiosAccordion">
+                            <div class="accordion-body text-secondary">
+                                Registra transferencias SINPE, controla el flujo por comercio/caja y mantén consistencia en las operaciones.
+                                <div class="mt-3 d-flex gap-2 flex-wrap">
+                                    <a asp-controller="Sinpe" asp-action="Create" class="btn btn-sm btn-primary btn-pill">
+                                        <i class="bi bi-lightning-charge me-1"></i> Nuevo SINPE
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-outline-primary btn-pill disabled" aria-disabled="true">
+                                        <i class="bi bi-graph-up me-1"></i> Reportes (próximo)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /accordion -->
+            </div>
+        </div>
+    </section>
+
+    <!-- MÓDULOS (CARDS) -->
+    <section class="mt-5">
+        <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-2 mb-3">
+            <div>
+                <div class="text-secondary small">Módulos del sistema</div>
+                <h2 class="h3 fw-semibold mb-0">Operación clara, acciones directas</h2>
+            </div>
+            <div class="text-secondary small">Entra por el módulo que necesites según tu flujo de trabajo.</div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-12 col-md-4">
+                <div class="card h-100 border-0 shadow-soft round-3">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="badge bg-primary-subtle text-primary border border-primary-subtle me-2">
+                                <i class="bi bi-receipt"></i>
+                            </span>
+                            <h6 class="mb-0">Transacciones SINPE</h6>
+                        </div>
+                        <p class="text-secondary small mb-3">
+                            Simula o registra pagos a teléfonos asociados a cajas del comercio.
+                        </p>
+                        <a asp-controller="Sinpe" asp-action="Create" class="btn btn-sm btn-primary btn-pill">
+                            <i class="bi bi-lightning-charge me-1"></i> Registrar SINPE
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card h-100 border-0 shadow-soft round-3">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="badge bg-success-subtle text-success border border-success-subtle me-2">
+                                <i class="bi bi-building"></i>
+                            </span>
+                            <h6 class="mb-0">Comercios</h6>
+                        </div>
+                        <p class="text-secondary small mb-3">
+                            Crea y mantén la información del comercio para organizar tu operación.
+                        </p>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <a asp-controller="Comercio" asp-action="Crear" class="btn btn-sm btn-outline-success btn-pill">
+                                <i class="bi bi-building-check me-1"></i> Nuevo Comercio
+                            </a>
+                            <a asp-controller="Comercio" asp-action="Index" class="btn btn-sm btn-success btn-pill text-white">
+                                <i class="bi bi-list-ul me-1"></i> Ver listado
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card h-100 border-0 shadow-soft round-3">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="badge bg-info-subtle text-info border border-info-subtle me-2">
+                                <i class="bi bi-box-seam"></i>
+                            </span>
+                            <h6 class="mb-0">Cajas</h6>
+                        </div>
+                        <p class="text-secondary small mb-3">
+                            Crea y edita cajas vinculadas a tu comercio y teléfonos para SINPE.
+                        </p>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <a asp-controller="Cajas" asp-action="Registrar" class="btn btn-sm btn-outline-info btn-pill">
+                                <i class="bi bi-plus-circle me-1"></i> Nueva Caja
+                            </a>
+                            <a asp-controller="Cajas" asp-action="Index" class="btn btn-sm btn-info btn-pill text-white">
+                                <i class="bi bi-list-ul me-1"></i> Ver cajas
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="col-12 col-md-4">
-            <div class="card h-100 border-0 shadow-soft round-3">
-                <div class="card-body p-4">
-                    <div class="d-flex align-items-center mb-2">
-                        <span class="badge bg-success-subtle text-success border border-success-subtle me-2"><i class="bi bi-building"></i></span>
-                        <h6 class="mb-0">Gestionar Comercios</h6>
+    <!-- CTA FINAL -->
+    <section class="mt-5">
+        <div class="card border-0 shadow-soft round-3 cta-bg">
+            <div class="card-body p-4 p-md-5 text-white">
+                <div class="row align-items-center g-4">
+                    <div class="col-12 col-lg-8">
+                        <div class="text-white-50 small mb-2">Listo para operar</div>
+                        <h2 class="h3 fw-semibold mb-2">Centraliza y controla tus pagos SINPE desde un solo lugar</h2>
+                        <p class="text-white-50 mb-0">
+                            Inicia con una transferencia o configura primero tu comercio y sus cajas.
+                        </p>
                     </div>
-                    <p class="text-secondary small mb-3">Crea y agrega la información del comercio.</p>
-                    <a asp-controller="Comercio" asp-action="Crear" class="btn btn-sm btn-outline-success btn-pill">
-                        <i class="bi bi-building-check me-1"></i> Nuevo Comercio
-                    </a>
+                    <div class="col-12 col-lg-4 d-flex gap-2 justify-content-lg-end flex-wrap">
+                        <a asp-controller="Sinpe" asp-action="Create" class="btn btn-light btn-lg btn-pill px-4">
+                            <i class="bi bi-lightning-charge me-1"></i> Nuevo SINPE
+                        </a>
+                        <a asp-controller="Comercio" asp-action="Crear" class="btn btn-outline-light btn-lg btn-pill px-4">
+                            <i class="bi bi-building-add me-1"></i> Nuevo Comercio
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="col-12 col-md-4">
-            <div class="card h-100 border-0 shadow-soft round-3">
-                <div class="card-body p-4">
-                    <div class="d-flex align-items-center mb-2">
-                        <span class="badge bg-info-subtle text-info border border-info-subtle me-2"><i class="bi bi-box-seam"></i></span>
-                        <h6 class="mb-0">Cajas</h6>
-                    </div>
-                    <p class="text-secondary small mb-3">Crea y edita cajas vinculadas a tu comercio y a SINPE.</p>
-                    <a asp-controller="Cajas" asp-action="Registrar" class="btn btn-sm btn-outline-info btn-pill">
-                        <i class="bi bi-plus-circle me-1"></i> Nueva Caja
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+    </section>
 
 </div>
