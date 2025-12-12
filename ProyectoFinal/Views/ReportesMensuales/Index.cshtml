@@ -6,6 +6,7 @@
     <button type="submit" class="btn btn-primary">Generar Reportes</button>
 </form>
 
+
 <table class="table" id="reportes-table">
     <thead>
         <tr>
@@ -35,12 +36,13 @@
                     @Html.DisplayFor(modelItem => item.MontoTotalComision)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.FechaDelReporte)
+                    @item.FechaDelReporte.ToString("dd/MM/yyyy")
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
 
 @section Scripts {
 
@@ -63,5 +65,4 @@
             });
         });
     </script>
-}
 }
