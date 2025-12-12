@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 using System.Threading.Tasks;
 
-namespace PoryectoFinal.Controllers
+namespace ProyectoFinal.Controllers
 {
     public class ReportesMensualesController : Controller
     {
@@ -42,10 +42,11 @@ namespace PoryectoFinal.Controllers
         [HttpPost]
         public async Task<IActionResult> GenerarReportes()
         {
+ 
             var fechaActual = DateTime.Today;
             var fechaActualCompleta = DateTime.Now;
             var fechaReporteKey = new DateTime(fechaActual.Year, fechaActual.Month, 1);
-            var fechaFinMes = fechaReporteKey.AddMonths(1).AddDays(-1);
+            var fechaFinMes = fechaReporteKey.AddMonths(1).AddTicks(-1);
 
             var comerciosConComision = await _context!.Comercios
                 .Join(_context.Configuracion,
@@ -62,18 +63,20 @@ namespace PoryectoFinal.Controllers
 
             foreach (var comercioData in comerciosConComision)
             {
-                int cantidadDeCajas = await _context.Cajas
-                    .CountAsync(c => c.IdComercio == comercioData.IdComercio);
+                var telefonosDeCajas = await _context.Cajas
+                    .Where(c => c.IdComercio == comercioData.IdComercio)
+                    .Select(c => c.TelefonoSINPE.Trim())
+                    .Distinct()
+                    .ToListAsync();
+
+                int cantidadDeCajas = telefonosDeCajas.Count();
+
+                if (telefonosDeCajas.Count == 0) continue;
 
                 var sinpesDelMes = await _context.Sinpes
-                    .Where(s => _context.Cajas.Any(caja =>
-                                 caja.TelefonoSINPE == s.TelefonoDestinatario &&
-                                 caja.IdComercio == comercioData.IdComercio)
-                          )
-                    .Where(s => s.FechaDeRegistro >= fechaReporteKey &&
-                                s.FechaDeRegistro <= fechaFinMes)
-                    .OrderBy(s => s.IdSinpe)
-                    .Take(1000)
+                    .Where(s => telefonosDeCajas.Contains(s.TelefonoDestinatario.Trim()) &&
+                                 s.FechaDeRegistro >= fechaReporteKey &&
+                                 s.FechaDeRegistro <= fechaFinMes)
                     .ToListAsync();
 
                 decimal montoTotalRecaudado = sinpesDelMes.Sum(s => s.Monto);
@@ -84,8 +87,8 @@ namespace PoryectoFinal.Controllers
 
                 var reporteExistente = await _context.ReportesMensuales
                     .FirstOrDefaultAsync(r => r.IdComercio == comercioData.IdComercio &&
-                                              r.FechaDelReporte.Year == fechaReporteKey.Year &&
-                                              r.FechaDelReporte.Month == fechaReporteKey.Month);
+                                                 r.FechaDelReporte.Year == fechaReporteKey.Year &&
+                                                 r.FechaDelReporte.Month == fechaReporteKey.Month);
 
                 if (reporteExistente != null)
                 {
@@ -105,7 +108,7 @@ namespace PoryectoFinal.Controllers
                         MontoTotalRecaudado = montoTotalRecaudado,
                         CantidadDeSINPES = cantidadDeSINPES,
                         MontoTotalComision = montoTotalComision,
-                        FechaDelReporte = fechaActualCompleta
+                        FechaDelReporte = fechaReporteKey
                     };
                     _context.ReportesMensuales.Add(nuevoReporte);
                 }
