@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ProyectoFinal.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class BitacoraController : Controller
     {
         private readonly AppDbContext _context;

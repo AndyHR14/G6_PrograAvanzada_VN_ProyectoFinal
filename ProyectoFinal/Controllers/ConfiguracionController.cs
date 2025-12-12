@@ -6,9 +6,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ProyectoFinal.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class ConfiguracionController : Controller
     {
         private readonly AppDbContext _context;

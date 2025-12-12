@@ -6,9 +6,11 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ProyectoFinal.Controllers
 {
+    [Authorize(Roles = "Cajero, Administrador")]
     public class CajasController : Controller
     {
         private readonly AppDbContext _context;
@@ -22,7 +24,26 @@ namespace ProyectoFinal.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Cajas.ToListAsync());
+            var correoUsuario = User.Identity.Name;
+            var esAdmin = User.IsInRole("Administrador");
+
+            if (esAdmin)
+            {
+                return View(await _context.Cajas.ToListAsync());
+            }
+            else
+            {
+                var usuario = await _context.Usuario.FirstOrDefaultAsync(u => u.CorreoElectronico == correoUsuario);
+
+                if (usuario == null) return Forbid(); 
+
+ 
+                var cajasDelCajero = await _context.Cajas
+                                            .Where(c => c.IdComercio == usuario.IdComercio)
+                                            .ToListAsync();
+
+                return View(cajasDelCajero);
+            }
         }
 
         public IActionResult Registrar()

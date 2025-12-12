@@ -3,6 +3,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProyectoFinal.Data;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using ProyectoFinal.Models;
 
 namespace LoginApp.Controllers
@@ -50,10 +53,34 @@ namespace LoginApp.Controllers
         [HttpPost]
         public async Task<IActionResult> ValidarLogin(string correo, string password)
         {
-            var usuario = await _context.Login
+            // 1. Buscar usuario
+            var usuarioLogin = await _context.Login
                 .FirstOrDefaultAsync(l => l.Correo == correo && l.Password == password);
 
-            return Json(usuario != null);
+            if (usuarioLogin != null)
+            {
+                var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.Name, usuarioLogin.Correo),
+            new Claim(ClaimTypes.Role, usuarioLogin.Rol),
+            new Claim("IdLogin", usuarioLogin.IdLogin.ToString())
+        };
+
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var authProperties = new AuthenticationProperties
+                {
+                    IsPersistent = true // Mantener sesión abierta aunque cierre navegador (opcional)
+                };
+
+                await HttpContext.SignInAsync(
+                    CookieAuthenticationDefaults.AuthenticationScheme,
+                    new ClaimsPrincipal(claimsIdentity),
+                    authProperties);
+
+                return Json(true);
+            }
+
+            return Json(false);
         }
 
         [HttpGet]
@@ -97,6 +124,12 @@ namespace LoginApp.Controllers
             await _context.SaveChangesAsync();
 
             TempData["Success"] = "Usuario registrado correctamente. Ahora puedes iniciar sesión.";
+            return RedirectToAction("Login", "Login");
+        }
+
+        public async Task<IActionResult> Salir()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login", "Login");
         }
     }

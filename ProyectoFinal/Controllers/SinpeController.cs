@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoFinal.Data;
 using ProyectoFinal.Models;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinal.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class SinpeController : Controller
     {
         private readonly AppDbContext _context;

@@ -5,9 +5,11 @@ using ProyectoFinal.Data;
 using System.Linq;
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ProyectoFinal.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class ReportesMensualesController : Controller
     {
         private readonly AppDbContext _context;
