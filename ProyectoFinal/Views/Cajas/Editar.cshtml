@@ -1,7 +1,8 @@
 @model ProyectoFinal.Models.Configuracion
+@model ProyectoFinal.Models.Cajas
 
 @{
-    ViewData["Title"] = "Editar Configuración";
+    ViewData["Title"] = "Editar Configuraciï¿½n";
 }
 
 <div class="container mt-4">
@@ -21,9 +22,9 @@
                     <small class="text-muted">El comercio no puede ser modificado</small>
                 </div>
 
-                @* Tipo de Configuración (editable) *@
+                @* Tipo de Configuraciï¿½n (editable) *@
                 <div class="mb-3">
-                    <label for="TipoConfiguracion" class="form-label">Tipo de Configuración</label>
+                    <label for="TipoConfiguracion" class="form-label">Tipo de Configuraciï¿½n</label>
                     <select name="TipoConfiguracion" class="form-select" required>
                         <option value="1" selected="@(Model.TipoConfiguracion == 1)">Plataforma</option>
                         <option value="2" selected="@(Model.TipoConfiguracion == 2)">Externa</option>
@@ -31,9 +32,9 @@
                     </select>
                 </div>
 
-                @* Comisión (editable) *@
+                @* Comisiï¿½n (editable) *@
                 <div class="mb-3">
-                    <label for="Comision" class="form-label">Comisión (%)</label>
+                    <label for="Comision" class="form-label">Comisiï¿½n (%)</label>
                     <input name="Comision" type="number" class="form-control" value="@Model.Comision" min="0" required />
                 </div>
 
@@ -52,7 +53,7 @@
                         <input type="text" class="form-control" value="@Model.FechaDeRegistro.ToString("dd/MM/yyyy HH:mm")" disabled />
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">Última Modificación</label>
+                        <label class="form-label">ï¿½ltima Modificaciï¿½n</label>
                         <input type="text" class="form-control" value="@(Model.FechaDeModificacion?.ToString("dd/MM/yyyy HH:mm") ?? "Sin modificaciones")" disabled />
                     </div>
                 </div>

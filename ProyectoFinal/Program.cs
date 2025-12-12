@@ -1,11 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using ProyectoFinal.Data;
+using ProyectoFinal.Services;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Agregar servicios al contenedor
 builder.Services.AddControllersWithViews();
+
+// Para poder utilizar el servicio de Bitacora
+builder.Services.AddScoped<IBitacoraService, BitacoraService>();
 
 // Configurar la conexión a MySQL
 builder.Services.AddDbContext<AppDbContext>(

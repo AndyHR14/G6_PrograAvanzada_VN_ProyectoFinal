@@ -9,7 +9,7 @@
     <div class="d-flex align-items-start justify-content-between flex-wrap gap-2 mb-3">
         <div>
             <h1 class="h3 mb-1">Editar comercio</h1>
-            <p class="text-muted mb-0">Actualiza la información del comercio.</p>
+            <p class="text-muted mb-0">Actualiza la informaciÃ³n del comercio.</p>
         </div>
         <div class="d-flex gap-2">
             <a asp-action="Index" class="btn btn-outline-secondary">
@@ -25,6 +25,7 @@
                     <form asp-action="Editar" method="post" novalidate>
                         @Html.AntiForgeryToken()
                         <input type="hidden" asp-for="IdComercio" />
+                        <input type="hidden" asp-for="FechaDeRegistro" />  <!-- â¬…ï¸ LÃNEA NUEVA -->
 
                         <div class="row g-3">
                             <div class="col-12 col-md-4">
@@ -34,16 +35,16 @@
 
                             <div class="col-12 col-md-4">
                                 <div class="form-floating">
-                                    <input asp-for="Identificacion" class="form-control" placeholder="Identificación" readonly />
-                                    <label asp-for="Identificacion">Identificación</label>
+                                    <input asp-for="Identificacion" class="form-control" placeholder="IdentificaciÃ³n" readonly />
+                                    <label asp-for="Identificacion">IdentificaciÃ³n</label>
                                 </div>
                             </div>
 
                             <div class="col-12 col-md-4">
-                                <label asp-for="TipoIdentificacion" class="form-label">Tipo de Identificación</label>
+                                <label asp-for="TipoIdentificacion" class="form-label">Tipo de IdentificaciÃ³n</label>
                                 <select asp-for="TipoIdentificacion" class="form-select" disabled>
-                                    <option value="1">Física</option>
-                                    <option value="2">Jurídica</option>
+                                    <option value="1">FÃ­sica</option>
+                                    <option value="2">JurÃ­dica</option>
                                 </select>
                                 <input type="hidden" asp-for="TipoIdentificacion" />
                             </div>
@@ -59,26 +60,26 @@
                             <div class="col-12 col-md-6">
                                 <label asp-for="TipoDeComercio" class="form-label">Tipo de Comercio</label>
                                 <select asp-for="TipoDeComercio" class="form-select">
-                                    <option value="">Seleccione…</option>
+                                    <option value="">Seleccioneâ€¦</option>
                                     <option value="1">Restaurantes</option>
                                     <option value="2">Supermercados</option>
-                                    <option value="3">Ferreterías</option>
+                                    <option value="3">FerreterÃ­as</option>
                                     <option value="4">Otros</option>
                                 </select>
                                 <span asp-validation-for="TipoDeComercio" class="text-danger small"></span>
                             </div>
 
                             <div class="col-12 col-md-6">
-                                <label asp-for="Telefono" class="form-label">Teléfono</label>
+                                <label asp-for="Telefono" class="form-label">TelÃ©fono</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="bi bi-telephone"></i></span>
-                                    <input asp-for="Telefono" class="form-control" type="tel" inputmode="numeric" maxlength="8" placeholder="8 dígitos" />
+                                    <input asp-for="Telefono" class="form-control" type="tel" inputmode="numeric" maxlength="8" placeholder="8 dÃ­gitos" />
                                 </div>
                                 <span asp-validation-for="Telefono" class="text-danger small"></span>
                             </div>
 
                             <div class="col-12 col-md-6">
-                                <label asp-for="CorreoElectronico" class="form-label">Correo Electrónico</label>
+                                <label asp-for="CorreoElectronico" class="form-label">Correo ElectrÃ³nico</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="bi bi-envelope"></i></span>
                                     <input asp-for="CorreoElectronico" class="form-control" type="email" />
@@ -88,8 +89,8 @@
 
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea asp-for="Direccion" class="form-control" placeholder="Dirección" style="height:100px"></textarea>
-                                    <label asp-for="Direccion">Dirección</label>
+                                    <textarea asp-for="Direccion" class="form-control" placeholder="DirecciÃ³n" style="height:100px"></textarea>
+                                    <label asp-for="Direccion">DirecciÃ³n</label>
                                 </div>
                                 <span asp-validation-for="Direccion" class="text-danger small"></span>
                             </div>
@@ -116,7 +117,7 @@
 
             <div class="alert alert-light border mt-3 mb-0">
                 <i class="bi bi-shield-check me-2"></i>
-                Recuerda: identificación y tipo de identificación están bloqueados para mantener integridad.
+                Recuerda: identificaciÃ³n y tipo de identificaciÃ³n estÃ¡n bloqueados para mantener integridad.
             </div>
         </div>
     </div>
