@@ -162,3 +162,12 @@
     background: linear-gradient( 135deg, rgba(13, 110, 253, .95), rgba(25, 135, 84, .9) );
     overflow: hidden;
 }
+
+/* Fondo general*/
+html, body {
+    height: 100%;
+}
+
+body {
+    background: #e6e7eb;
+}

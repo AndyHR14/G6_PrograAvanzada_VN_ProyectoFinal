@@ -2,15 +2,22 @@
     ViewData["Title"] = "Módulo SINPE";
 }
 
+@section Styles {
+    <link rel="stylesheet" href="~/css/sinpe-index.css" asp-append-version="true" />
+}
+
 <div class="container py-4">
 
+    <!-- Header -->
     <div class="d-flex align-items-start justify-content-between flex-wrap gap-2 mb-3">
         <div>
+            <div class="hero-kicker text-secondary mb-1">Pagos electrónicos • SINPE Móvil</div>
             <h1 class="h3 mb-1">Módulo SINPE</h1>
             <p class="text-muted mb-0">Simulación de pagos electrónicos a números asociados a caja.</p>
         </div>
+
         <div class="d-flex gap-2">
-            <a asp-action="Create" class="btn btn-primary">
+            <a asp-action="Create" class="btn btn-primary btn-pill">
                 <i class="bi bi-plus-circle me-1"></i>
                 Registrar nuevo SINPE
             </a>
@@ -18,31 +25,137 @@
     </div>
 
     <div class="row g-3">
-        <div class="col-12 col-lg-7">
-            <div class="card shadow-sm border-0">
-                <div class="card-body">
-                    <h2 class="h5">¿Qué puedes hacer aquí?</h2>
-                    <p class="mb-0 text-secondary">
-                        Registra una transferencia SINPE Móvil indicando teléfonos de origen y destinatario (caja),
-                        nombre de las partes, monto y una descripción opcional. El sistema validará el formato y te
-                        mostrará el resultado de la simulación.
-                    </p>
+        <!-- Hero card -->
+        <div class="col-12 col-lg-8">
+            <div class="card border-0 shadow-soft round-3 gradient-sinpe text-white">
+                <div class="card-body p-4 p-lg-5">
+                    <div class="d-flex align-items-start justify-content-between gap-3">
+                        <div>
+                            <div class="text-white-50 small">Operación</div>
+                            <h2 class="h4 fw-semibold mb-2">Registra una transferencia SINPE en segundos</h2>
+                            <p class="text-white-50 mb-4">
+                                Indica teléfono origen y destinatario (caja), nombre de las partes, monto y una descripción opcional.
+                                El sistema valida el formato y muestra el resultado de la simulación.
+                            </p>
+
+                            <div class="d-flex flex-wrap gap-2">
+                                <a asp-action="Create" class="btn btn-light btn-pill px-4">
+                                    <i class="bi bi-lightning-charge me-1"></i> Iniciar ahora
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="d-none d-md-block">
+                            <span class="icon-badge">
+                                <i class="bi bi-phone-vibrate fs-4"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- mini métricas (simuladas) -->
+                    <div class="row g-2 mt-4">
+                        <div class="col-12 col-md-4">
+                            <div class="mini-metric p-3">
+                                <div class="text-secondary small">Validación</div>
+                                <div class="fw-semibold text-dark">Formato y campos</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="mini-metric p-3">
+                                <div class="text-secondary small">Destino</div>
+                                <div class="fw-semibold text-dark">Caja asociada</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="mini-metric p-3">
+                                <div class="text-secondary small">Resultado</div>
+                                <div class="fw-semibold text-dark">Simulación inmediata</div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
 
-        <div class="col-12 col-lg-5">
-            <div class="alert alert-info border-0 shadow-sm mb-0">
+        <!-- Side cards -->
+        <div class="col-12 col-lg-4">
+            <div class="card border-0 shadow-soft round-3 mb-3">
+                <div class="card-body p-4">
+                    <div class="d-flex gap-3">
+                        <span class="icon-badge">
+                            <i class="bi bi-shield-check"></i>
+                        </span>
+                        <div>
+                            <h3 class="h6 fw-semibold mb-1">Buenas prácticas</h3>
+                            <p class="text-secondary mb-0 small">
+                                Verifica que el destinatario sea un número asociado a una caja activa del comercio antes de registrar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-info border-0 shadow-soft round-3 mb-0">
                 <div class="d-flex">
                     <div class="me-2">
                         <i class="bi bi-info-circle"></i>
                     </div>
                     <div>
-                        <strong>Consejo:</strong> usa siempre el botón <em>“Registrar nuevo SINPE”</em> para crear una
-                        transacción. Podrás volver a este módulo en cualquier momento.
+                        <strong>Consejo:</strong> usa siempre el botón <em>“Registrar nuevo SINPE”</em> para crear una transacción.
+                        Podrás volver a este módulo en cualquier momento.
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Cómo funciona -->
+    <div class="mt-4" id="como-funciona">
+        <div class="d-flex align-items-end justify-content-between flex-wrap gap-2 mb-2">
+            <div>
+                <div class="text-secondary small">Guía rápida</div>
+                <h2 class="h5 mb-0">¿Cómo funciona la simulación?</h2>
+            </div>
+        </div>
+
+        <div class="row g-3 steps">
+            <div class="col-12 col-md-4">
+                <div class="step p-4 h-100">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span class="num">1</span>
+                        <div class="fw-semibold">Identifica las partes</div>
+                    </div>
+                    <div class="text-secondary small">
+                        Ingresa teléfono y nombre del origen y del destinatario. El destinatario debe corresponder a una caja.
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="step p-4 h-100">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span class="num">2</span>
+                        <div class="fw-semibold">Define el monto</div>
+                    </div>
+                    <div class="text-secondary small">
+                        Registra el monto y (opcionalmente) una descripción. Se validan campos y formato.
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="step p-4 h-100">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span class="num">3</span>
+                        <div class="fw-semibold">Obtén el resultado</div>
+                    </div>
+                    <div class="text-secondary small">
+                        El sistema confirma la simulación y te muestra el resultado. Puedes repetir el proceso cuando lo necesites.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

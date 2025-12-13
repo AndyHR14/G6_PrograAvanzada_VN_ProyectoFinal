@@ -1,0 +1,28 @@
+﻿/* =========================
+   Comercio – Index List
+   ========================= */
+
+.comercio-table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.comercio-row {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .05);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+    .comercio-row:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 28px rgba(0, 0, 0, .08);
+    }
+
+    .comercio-row td {
+        padding: 16px 18px;
+    }
+
+        .comercio-row td:first-child {
+            border-radius: 14px;
+        }
