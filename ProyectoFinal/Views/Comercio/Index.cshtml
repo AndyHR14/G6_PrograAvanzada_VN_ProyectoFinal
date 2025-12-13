@@ -6,15 +6,29 @@
 
 <div class="container py-4">
 
-    <div class="d-flex align-items-start justify-content-between flex-wrap gap-2 mb-3">
-        <div>
-            <h1 class="h3 mb-1">Comercios</h1>
-            <p class="text-muted mb-0">Directorio de comercios registrados y su estado.</p>
-        </div>
-        <div class="d-flex gap-2">
-            <a class="btn btn-primary" asp-action="Crear" role="button">
-                <i class="bi bi-plus-circle me-1"></i> Crear
-            </a>
+    <!-- Hero Comercios -->
+    <div class="card border-0 shadow-sm mb-4 bg-primary bg-gradient text-white">
+        <div class="card-body px-4 py-4">
+            <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3">
+
+                <div>
+                    <h1 class="h2 fw-semibold mb-1">
+                        <i class="bi bi-building me-2"></i> Comercios
+                    </h1>
+                    <p class="mb-0 text-white-50">
+                        Directorio de comercios registrados y su estado.
+                    </p>
+                </div>
+
+                <div>
+                    <a class="btn btn-light fw-semibold"
+                       asp-action="Crear">
+                        <i class="bi bi-plus-circle me-1"></i>
+                        Crear comercio
+                    </a>
+                </div>
+
+            </div>
         </div>
     </div>
 
@@ -64,13 +78,13 @@
 
                 <div class="col-6 col-md-2 d-flex align-items-end">
                     <button type="button" id="btnLimpiarFiltros" class="btn btn-outline-secondary w-100">
-                        Limpiar
+                        <i class="bi bi-eraser me-1"></i> Limpiar
                     </button>
                 </div>
             </div>
 
             <div class="table-responsive">
-                <table class="table align-middle table-hover" id="tablaComercios">
+                <table class="table align-middle table-hover mb-0" id="tablaComercios">
                     <thead class="table-light">
                         <tr>
                             <th class="text-nowrap">Identificación</th>
@@ -126,7 +140,7 @@
                                         }
                                     </td>
                                     <td class="text-end">
-                                        <div class="btn-group" role="group">
+                                        <div class="btn-group" role="group" aria-label="Acciones de comercio">
                                             <a class="btn btn-sm btn-outline-primary"
                                                asp-controller="Comercio" asp-action="Editar" asp-route-id="@itemDato.IdComercio">
                                                 <i class="bi bi-pencil-square me-1"></i>Editar
@@ -184,9 +198,9 @@
 
             function aplicarFiltros() {
                 const texto = normalizar(inputTexto.value.trim());
-                const tipoIdFiltro = selectTipoId.value;          // "Física", "Jurídica", "N/D" o ""
-                const tipoComercioFiltro = selectTipoComercio.value; // "Restaurantes", etc. o ""
-                const estadoFiltro = selectEstado.value;          // "Activo", "Inactivo" o ""
+                const tipoIdFiltro = selectTipoId.value;
+                const tipoComercioFiltro = selectTipoComercio.value;
+                const estadoFiltro = selectEstado.value;
 
                 let hayVisibles = false;
 
@@ -203,29 +217,17 @@
 
                     const textoBuscable = identificacion + " " + nombre + " " + telefono + " " + correo;
 
-                    // 1. Filtro texto general
                     let coincideTexto = true;
-                    if (texto) {
-                        coincideTexto = textoBuscable.includes(texto);
-                    }
+                    if (texto) coincideTexto = textoBuscable.includes(texto);
 
-                    // 2. Filtro Tipo Identificación
                     let coincideTipoId = true;
-                    if (tipoIdFiltro) {
-                        coincideTipoId = (tipoIdTexto === tipoIdFiltro);
-                    }
+                    if (tipoIdFiltro) coincideTipoId = (tipoIdTexto === tipoIdFiltro);
 
-                    // 3. Filtro Tipo Comercio
                     let coincideTipoComercio = true;
-                    if (tipoComercioFiltro) {
-                        coincideTipoComercio = (tipoComercioTexto === tipoComercioFiltro);
-                    }
+                    if (tipoComercioFiltro) coincideTipoComercio = (tipoComercioTexto === tipoComercioFiltro);
 
-                    // 4. Filtro Estado
                     let coincideEstado = true;
-                    if (estadoFiltro) {
-                        coincideEstado = (estadoTexto === estadoFiltro);
-                    }
+                    if (estadoFiltro) coincideEstado = (estadoTexto === estadoFiltro);
 
                     if (coincideTexto && coincideTipoId && coincideTipoComercio && coincideEstado) {
                         fila.style.display = "";
@@ -235,12 +237,10 @@
                     }
                 });
 
-                // Mostrar/ocultar mensaje de "sin resultados"
                 if (mensajeSinResultados) {
                     mensajeSinResultados.classList.toggle('d-none', hayVisibles || filas.length === 0);
                 }
 
-                // Si no hay datos iniciales (solo fila "No hay comercios registrados"), no mostramos el mensaje de filtros
                 if (filaSinDatos && filas.length === 0) {
                     mensajeSinResultados.classList.add('d-none');
                 }
@@ -262,4 +262,3 @@
         });
     </script>
 }
-

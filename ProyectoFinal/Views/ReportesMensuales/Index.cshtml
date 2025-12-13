@@ -1,53 +1,89 @@
 ﻿@model IEnumerable<ProyectoFinal.Models.ReporteMensual>
 
-<h1>Reportes Mensuales</h1>
+@{
+    ViewData["Title"] = "Reportes Mensuales";
+}
 
-<form asp-action="GenerarReportes" method="post" style="display:inline;">
-    <button type="submit" class="btn btn-primary">Generar Reportes</button>
-</form>
+<div class="container py-4">
+
+    <!-- Hero Reportes Mensuales -->
+    <div class="card border-0 shadow-sm mb-4 bg-info bg-gradient text-white">
+        <div class="card-body px-4 py-4">
+            <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3">
+
+                <div>
+                    <h1 class="h2 fw-semibold mb-1">
+                        <i class="bi bi-file-earmark-bar-graph me-2"></i> Reportes Mensuales
+                    </h1>
+                    <p class="mb-0 text-white-50">
+                        Resumen mensual por comercio: cajas, SINPES, montos y comisión.
+                    </p>
+                </div>
+
+                <div>
+                    <form asp-action="GenerarReportes" method="post" class="m-0">
+                        <button type="submit" class="btn btn-light fw-semibold">
+                            <i class="bi bi-arrow-clockwise me-1"></i>
+                            Generar reportes
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
-<table class="table" id="reportes-table">
-    <thead>
-        <tr>
-            <th>Nombre del comercio</th>
-            <th>Cantidad de Cajas</th>
-            <th>Monto Recaudado</th>
-            <th>Cantidad de SINPES</th>
-            <th>Monto Total Comisión</th>
-            <th>Fecha del Reporte</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr data-id-comercio="@item.IdComercio">
-                <td class="nombre-comercio">Cargando...</td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CantidadDeCajas)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MontoTotalRecaudado)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CantidadDeSINPES)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MontoTotalComision)
-                </td>
-                <td>
-                    @item.FechaDelReporte.ToString("dd/MM/yyyy")
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <!-- Content card -->
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
 
+            <div class="table-responsive">
+                <table class="table align-middle table-hover mb-0" id="reportes-table">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Nombre del comercio</th>
+                            <th class="text-nowrap">Cantidad de Cajas</th>
+                            <th class="text-nowrap">Monto Recaudado</th>
+                            <th class="text-nowrap">Cantidad de SINPES</th>
+                            <th class="text-nowrap">Monto Total Comisión</th>
+                            <th class="text-nowrap">Fecha del Reporte</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr data-id-comercio="@item.IdComercio">
+                                    <td class="nombre-comercio text-muted">Cargando...</td>
+                                    <td>@Html.DisplayFor(modelItem => item.CantidadDeCajas)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MontoTotalRecaudado)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.CantidadDeSINPES)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MontoTotalComision)</td>
+                                    <td class="text-nowrap">@item.FechaDelReporte.ToString("dd/MM/yyyy")</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr id="filaSinDatos">
+                                <td colspan="6" class="text-center py-4 text-muted">
+                                    No hay reportes mensuales para mostrar.
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 @section Scripts {
-
     <script>
-
         $(document).ready(function () {
             $('#reportes-table tbody tr[data-id-comercio]').each(function () {
                 var fila = $(this);
@@ -55,7 +91,7 @@
 
                 $.getJSON('/ReportesMensuales/GetNombreComercio/' + idComercio, function (data) {
                     if (data && data.nombre) {
-                        fila.find('.nombre-comercio').text(data.nombre);
+                        fila.find('.nombre-comercio').removeClass('text-muted').text(data.nombre);
                     } else {
                         fila.find('.nombre-comercio').text('No encontrado');
                     }

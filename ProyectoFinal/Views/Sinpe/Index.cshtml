@@ -8,21 +8,39 @@
 
 <div class="container py-4">
 
-    <!-- Header -->
-    <div class="d-flex align-items-start justify-content-between flex-wrap gap-2 mb-3">
-        <div>
-            <div class="hero-kicker text-secondary mb-1">Pagos electrónicos • SINPE Móvil</div>
-            <h1 class="h3 mb-1">Módulo SINPE</h1>
-            <p class="text-muted mb-0">Simulación de pagos electrónicos a números asociados a caja.</p>
-        </div>
+    <!-- Hero SINPE -->
+    <div class="card border-0 shadow-soft round-3 gradient-sinpe text-white mb-4">
+        <div class="card-body px-4 py-4 py-lg-5">
 
-        <div class="d-flex gap-2">
-            <a asp-action="Create" class="btn btn-primary btn-pill">
-                <i class="bi bi-plus-circle me-1"></i>
-                Registrar nuevo SINPE
-            </a>
+            <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-3">
+
+                <div>
+                    <div class="text-white-50 small mb-1">
+                        Pagos electrónicos • SINPE Móvil
+                    </div>
+
+                    <h1 class="h2 fw-semibold mb-2">
+                        <i class="bi bi-phone-vibrate me-2"></i>
+                        Módulo SINPE
+                    </h1>
+
+                    <p class="mb-0 text-white-50">
+                        Simulación de pagos electrónicos a números asociados a cajas registradas.
+                    </p>
+                </div>
+
+                <div>
+                    <a asp-action="Create" class="btn btn-light fw-semibold px-4 btn-pill">
+                        <i class="bi bi-plus-circle me-1"></i>
+                        Registrar nuevo SINPE
+                    </a>
+                </div>
+
+            </div>
+
         </div>
     </div>
+
 
     <div class="row g-3">
         <!-- Hero card -->
